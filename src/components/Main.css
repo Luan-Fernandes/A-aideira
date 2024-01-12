@@ -1,0 +1,123 @@
+main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .nomesAcai{
+    font-size: 20px;
+  }
+  .acai1,.acai2,.acai3,.acai4{
+    height: 300px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+  }
+  
+  .tipoacai,.desacai{
+    width: 50%;
+    height: 300px;
+    border-radius: 30px;
+    transition: 1s;
+  }
+  .tipoacaiActivo,.desacaiActivo{
+    width: 50%;
+    height: 300px;
+    border-radius: 30px;
+    transition: 1s;
+  
+  }
+  .tipoacai{
+    transform: translateX(-90px);
+    background-color: black;
+  }
+  .desacai{
+    transform: translateX(90px);
+    background-color: aliceblue;
+    opacity: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  
+  .tipoacaiActivo{
+    position: relative;
+    transform: translateX(-160px);
+    background-color: black;
+  
+  }
+  .desacaiActivo{
+    position: relative;
+    transform: translateX(90%);
+    background-color: aliceblue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .tiacai, .textacai{
+    margin-left: 2.5rem;
+  }
+  .precosDms{
+    margin-top: 20px;
+    margin-bottom: 90px;
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    align-items: center;
+  }
+  .butSelect{
+    padding: 10px;
+    border: 1px solid;
+    border-radius: 30px;
+    background-color: transparent;
+    transition: 1s;
+  }
+  .butSelectActivo{
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 30px;
+    background-color: black;
+    color: white;
+    transition: 1s;
+  }
+  
+  
+  /*-------------------------------------*/
+  .valores{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    
+  
+  }
+  .containervalores{
+    background-color: bl;
+    width: 90%;
+    height:65px;
+    border: 1px solid;
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: fixed;
+    background-color: black;
+    margin-top: 78vh;
+    transform: translatex(120%);
+    transition: 1s;
+  }
+  .containervaloresActivo{
+    width: 90%;
+    height:65px;
+    border: 1px solid;
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: fixed;
+    background-color: black;
+    margin-top: 78vh;
+    transition: .5s;
+  }  
