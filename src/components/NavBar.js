@@ -1,6 +1,7 @@
 import { useState,useEffect } from 'react';
 import '../App.css';
 import { useNavigate } from 'react-router-dom';
+import logo from "./img/image6-removebg-preview (2).png"
 
 function NavBar() {
   const history = useNavigate();
@@ -21,7 +22,7 @@ function NavBar() {
     <div className="App">
  
       <header>
-        <figure><spam>Logo</spam></figure>
+        <img className='logo' src={logo} alt="logo" />
         <p onClick={() => [Navigation(),setContadorNav(!ContadorNav)]} className='perssonalisar'>{ContadorNav === true ? 'Personalizar' : 'Dicas de Açaí'}
         </p>
       </header> 

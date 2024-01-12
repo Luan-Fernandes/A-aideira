@@ -1,6 +1,6 @@
 body{
   height: 100vh;
-  background-color: rgb(119, 117, 117);
+  background-color:#cb9bde;
 }
 
 header{
@@ -9,13 +9,17 @@ header{
   justify-content: center;
   align-items: center;
   justify-content: space-around;
-  background-color: black;
+  background-color: #7900ac;
   color: white;
 }
 .perssonalisar{
   padding: 9px;
   border: 1px solid;
   border-radius: 30px;
+}
+.logo{
+  width: 70px;
+  height: 70px;
 }
 
 /*---------------------------------------*/

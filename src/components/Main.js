@@ -1,5 +1,10 @@
 import './Main.css';
 import { useState } from 'react'
+/*imgs*/
+import imgLimocity from "./img/image0.jpeg";
+import imgAcaideira from "./img/image2.png";
+import imgBlack from "./img/image3.png";
+import imgKids from "./img/image4.png";
 function Main() {
 
   const [openDesc1, setOpenDesc1] = useState(true);
@@ -39,7 +44,7 @@ function Main() {
           <li>BANANA</li>
         </ul>
         </div>
-        <div className={openDesc1 === true ? 'tipoacai' : 'tipoacaiActivo'}></div>
+        <img className={openDesc1 === true ? 'tipoacai' : 'tipoacaiActivo'} src={imgKids} alt="imagens dos acais" />
         </section>
         <div className='precosDms'>
          R$12,00
@@ -57,7 +62,7 @@ function Main() {
           
         </ul>
         </div>
-        <div className={openDesc2 === true ? 'tipoacai' : 'tipoacaiActivo'}></div>
+        <img className={openDesc2 === true ? 'tipoacai' : 'tipoacaiActivo'} src={imgLimocity} alt="imagens dos acais" />
         </section>
         <div className='precosDms'>
         R$12,00
@@ -73,13 +78,13 @@ function Main() {
           <li>M&M</li>
           <li>NUTELLA</li>
           <li>CHOC/BRANCO</li>
-          <li>MORABGO</li>
+          <li>MORANGO</li>
           <li>BANANA</li>
           <li>TUBIN</li>
           <li>CALDA/CHOC</li>
         </ul>
         </div>
-        <div className={openDesc3 === true ? 'tipoacai' : 'tipoacaiActivo'}></div>
+        <img className={openDesc3 === true ? 'tipoacai' : 'tipoacaiActivo'} src={imgAcaideira} alt="imagens dos acais" />
         </section>
         <div className='precosDms'>
         R$12,00
@@ -98,7 +103,7 @@ function Main() {
           <li>CALDA/CHOC</li>
         </ul>
         </div>
-        <div className={openDesc4 === true ? 'tipoacai' : 'tipoacaiActivo'}></div>
+        <img className={openDesc4 === true ? 'tipoacai' : 'tipoacaiActivo'} src={imgBlack} alt="imagens dos acais" />
         </section>
         <div className='precosDms'>
         R$12,00
