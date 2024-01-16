@@ -100,7 +100,7 @@ main{
     justify-content: space-around;
     align-items: center;
     position: fixed;
-    top: 12vh;
+    top: 10vh;
     background-color: black;
     margin-top: 78vh;
     transform: translatex(120%);
@@ -115,7 +115,7 @@ main{
     justify-content: space-around;
     align-items: center;
     position: fixed;
-    top:12vh;
+    top:10vh;
     background-color: black;
     margin-top: 78vh;
     transition: .5s;
