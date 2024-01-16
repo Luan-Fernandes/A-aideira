@@ -1,5 +1,5 @@
 import './Main.css';
-import { useState } from 'react'
+import { useState,useEffect } from 'react'
 /*imgs*/
 import imgLimocity from "./img/image0.jpeg";
 import imgAcaideira from "./img/image2.png";
@@ -17,18 +17,55 @@ function Main() {
   const [butSelect3, setButSelect3] = useState(true);
   const [butSelect4, setButSelect4] = useState(true);
 
+  /*valores acai*/
+  const [acaiKids,setAcaiKids] = useState(0);
+  const [acaiBlack,setAcaiBlack] = useState(0);
+  const [acaiAçaideira,setAcaiAçaideira] = useState(0);
+  const [acaiLimocity,setAcaiLimocity] = useState(0);
+  const [somaTotal,setSomaTotal] = useState(0)
+
+  useEffect(() => {
+    /*soma acai kids*/
+    if(butSelect1 === true){
+      setAcaiKids(0)
+    }
+    else{
+      setAcaiKids(12)
+    }
+    /*soma acai black*/
+    if(butSelect2 === true){
+      setAcaiBlack(0)
+    }
+    else{
+      setAcaiBlack(12)
+    }
+    /*soma acaideira*/
+    if(butSelect3 === true){
+      setAcaiAçaideira(0)
+    }
+    else{
+      setAcaiAçaideira(12)
+    }
+  /*soma limocity*/
+    if(butSelect4 === true){
+      setAcaiLimocity(0)
+    }
+    else{
+      setAcaiLimocity(12)
+    }
+    setSomaTotal(acaiKids+acaiBlack+acaiLimocity+acaiAçaideira);
+  
+  },[butSelect1,butSelect2,butSelect3,butSelect4,somaTotal,acaiKids,acaiBlack,acaiAçaideira,acaiLimocity])
   const containervalores = () => {
     if(butSelect1 === true && butSelect2 === true && butSelect3 === true && butSelect4 === true){
       return ('containervalores')
     }
     else return ('containervaloresActivo')
   }
+
   return (
     <div className="App">
-      <section className='valores'>
-        <div className={containervalores()}>
-        </div>
-      </section>
+      
       <main>
         <h1>Dicas de Açaí</h1>
 
@@ -42,6 +79,7 @@ function Main() {
           <li>CEREAL</li>
           <li>CALDA/MOR</li>
           <li>BANANA</li>
+          <li>{somaTotal}</li>
         </ul>
         </div>
         <img className={openDesc1 === true ? 'tipoacai' : 'tipoacaiActivo'} src={imgKids} alt="imagens dos acais" />
@@ -110,7 +148,10 @@ function Main() {
         <button onClick={() => setButSelect4(!butSelect4)} className={butSelect4 === true ? 'butSelect' : 'butSelectActivo'}>SELECIONAR</button>
         </div>
       </main>
-      
+      <section className='valores'>
+        <div className={containervalores()}>
+        </div>
+      </section>
     </div>
   );
 }

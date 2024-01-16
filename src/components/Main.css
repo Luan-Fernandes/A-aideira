@@ -84,14 +84,11 @@ main{
     transition: 1s;
   }
   
-  
   /*-------------------------------------*/
   .valores{
     width: 100%;
     display: flex;
     justify-content: center;
-    
-  
   }
   .containervalores{
     background-color: bl;
@@ -103,6 +100,7 @@ main{
     justify-content: space-around;
     align-items: center;
     position: fixed;
+    top: 12vh;
     background-color: black;
     margin-top: 78vh;
     transform: translatex(120%);
@@ -117,6 +115,7 @@ main{
     justify-content: space-around;
     align-items: center;
     position: fixed;
+    top:12vh;
     background-color: black;
     margin-top: 78vh;
     transition: .5s;
