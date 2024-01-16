@@ -20,12 +20,14 @@ main{
     height: 300px;
     border-radius: 30px;
     transition: 1s;
+    box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.452);
   }
   .tipoacaiActivo,.desacaiActivo{
     width: 50%;
     height: 300px;
     border-radius: 30px;
     transition: 1s;
+    box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.452);
   
   }
   .tipoacai{
@@ -74,14 +76,17 @@ main{
     border-radius: 30px;
     background-color: transparent;
     transition: 1s;
+    color: white;
+    font-family: 'Lemon', serif;
   }
   .butSelectActivo{
     padding: 10px;
-    border: 1px solid black;
+    border: 1px solid #7900ac;
     border-radius: 30px;
-    background-color: black;
+    background-color: #7900ac;
     color: white;
     transition: 1s;
+    font-family: 'Lemon', serif;
   }
   
   /*-------------------------------------*/
@@ -91,17 +96,15 @@ main{
     justify-content: center;
   }
   .containervalores{
-    background-color: bl;
     width: 90%;
     height:65px;
-    border: 1px solid;
+    background-color: #7900ac;
     border-radius: 20px;
     display: flex;
     justify-content: space-around;
     align-items: center;
     position: fixed;
     top: 10vh;
-    background-color: black;
     margin-top: 78vh;
     transform: translatex(120%);
     transition: 1s;
@@ -109,14 +112,35 @@ main{
   .containervaloresActivo{
     width: 90%;
     height:65px;
-    border: 1px solid;
     border-radius: 20px;
     display: flex;
     justify-content: space-around;
     align-items: center;
     position: fixed;
     top:10vh;
-    background-color: black;
+    background-color: #7900ac;
     margin-top: 78vh;
     transition: .5s;
+    color: white;
+    box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.452);
   }  
+  .containervaloresActivo h1{
+    font-size: 20px;
+  }
+  .containervalores h1{
+    font-size: 20px;
+  }
+  .containervaloresActivo h2{
+    font-size: 20px;
+  }
+  .containervalores h2{
+    font-size: 20px;
+  }
+  .butContinuar{
+    padding: 10px;
+    border-radius: 20px;
+    background-color: transparent;
+    color: white;
+    border: 1px solid;
+    font-family: 'Lemon', serif;
+  }

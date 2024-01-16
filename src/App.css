@@ -1,6 +1,7 @@
 body{
   height: 100vh;
   background-color:#cb9bde;
+  font-family: 'Lemon', serif;
 }
 
 header{
@@ -11,6 +12,7 @@ header{
   justify-content: space-around;
   background-color: #7900ac;
   color: white;
+  border-bottom: 3px solid white;
 }
 .perssonalisar{
   padding: 9px;

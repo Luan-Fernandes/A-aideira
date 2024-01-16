@@ -68,6 +68,7 @@ function Main() {
       
       <main>
         <h1>Dicas de Açaí</h1>
+        <p>*Click para ver Detalhes.</p>
 
         <h2 className='nomesAcai'>*Açaí Kids 300ML</h2>
         <section onClick={() => setOpenDesc1(!openDesc1)} className='acai1'>
@@ -86,7 +87,7 @@ function Main() {
         </section>
         <div className='precosDms'>
          R$12,00
-         <button onClick={() => setButSelect1(!butSelect1)} className={butSelect1 === true ? 'butSelect' : 'butSelectActivo'}>SELECIONAR</button>
+         <button onClick={() => setButSelect1(!butSelect1)} className={butSelect1 === true ? 'butSelect' : 'butSelectActivo'}>{butSelect1 === true ? 'SELECIONAR' : 'SELECIONADO'}</button>
         </div>
 
         <h2 className='nomesAcai'>*Açaí Limocity 700ML</h2>
@@ -104,7 +105,7 @@ function Main() {
         </section>
         <div className='precosDms'>
         R$12,00
-        <button onClick={() => setButSelect2(!butSelect2)} className={butSelect2 === true ? 'butSelect' : 'butSelectActivo'}>SELECIONAR</button>
+        <button onClick={() => setButSelect2(!butSelect2)} className={butSelect2 === true ? 'butSelect' : 'butSelectActivo'}>{butSelect2 === true ? 'SELECIONAR' : 'SELECIONADO'}</button>
         </div>
         
 
@@ -126,7 +127,7 @@ function Main() {
         </section>
         <div className='precosDms'>
         R$12,00
-        <button onClick={() => setButSelect3(!butSelect3)} className={butSelect3 === true ? 'butSelect' : 'butSelectActivo'}>SELECIONAR</button>
+        <button onClick={() => setButSelect3(!butSelect3)} className={butSelect3 === true ? 'butSelect' : 'butSelectActivo'}>{butSelect3 === true ? 'SELECIONAR' : 'SELECIONADO'}</button>
         </div>
 
         <h2 className='nomesAcai'>*Açaí Black 700ML</h2>
@@ -145,11 +146,14 @@ function Main() {
         </section>
         <div className='precosDms'>
         R$12,00
-        <button onClick={() => setButSelect4(!butSelect4)} className={butSelect4 === true ? 'butSelect' : 'butSelectActivo'}>SELECIONAR</button>
+        <button onClick={() => setButSelect4(!butSelect4)} className={butSelect4 === true ? 'butSelect' : 'butSelectActivo'}>{butSelect4 === true ? 'SELECIONAR' : 'SELECIONADO'}</button>
         </div>
       </main>
       <section className='valores'>
         <div className={containervalores()}>
+          <h1>Valor:</h1>
+          <h2>R${somaTotal},00</h2>
+          <button className='butContinuar'>CONTINUAR</button>
         </div>
       </section>
     </div>
