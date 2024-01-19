@@ -24,43 +24,86 @@ function Main() {
   const [acaiLimocity,setAcaiLimocity] = useState(0);
   const [somaTotal,setSomaTotal] = useState(0)
 
+  /*msg acai*/
+  const [opAcaiKids,setOpAcaiKids] = useState('');
+  const [opAcaiBlack,setOpAcaiBlack] = useState('');
+  const [opAcaiAçaideira,setOpAcaiAçaideira] = useState('');
+  const [opAcaiLimocity,setOpAcaiLimocity] = useState('');
+  const [opAcai,setOpAcai] = useState('')
+  const [envioPedido,setEnvioPedido] = useState("")
+  
+
   useEffect(() => {
     /*soma acai kids*/
     if(butSelect1 === true){
       setAcaiKids(0)
+      setOpAcaiKids('')
     }
     else{
       setAcaiKids(12)
+      setOpAcaiKids('_KIDS_\n')
     }
     /*soma acai black*/
-    if(butSelect2 === true){
+    if(butSelect4 === true){
       setAcaiBlack(0)
+      setOpAcaiBlack('')
     }
     else{
       setAcaiBlack(12)
+      setOpAcaiBlack('_BLACK_ \n')
     }
     /*soma acaideira*/
     if(butSelect3 === true){
       setAcaiAçaideira(0)
+      setOpAcaiAçaideira('')
     }
     else{
       setAcaiAçaideira(12)
+      setOpAcaiAçaideira('_AÇAIDEIRA_\n')
     }
   /*soma limocity*/
-    if(butSelect4 === true){
+    if(butSelect2 === true){
       setAcaiLimocity(0)
+      setOpAcaiLimocity('')
     }
     else{
       setAcaiLimocity(12)
+      setOpAcaiLimocity('_LIMOCITY_ \n')
     }
+    setOpAcai(opAcaiLimocity+opAcaiAçaideira+opAcaiBlack+opAcaiKids);
+    setEnvioPedido("*PEDIDO* \n VOU QUERER:\n" + opAcai)
     setSomaTotal(acaiKids+acaiBlack+acaiLimocity+acaiAçaideira);
   
-  },[butSelect1,butSelect2,butSelect3,butSelect4,somaTotal,acaiKids,acaiBlack,acaiAçaideira,acaiLimocity])
+  },[opAcai,opAcaiLimocity,opAcaiAçaideira,opAcaiBlack,opAcaiKids,butSelect1,butSelect2,butSelect3,butSelect4,somaTotal,acaiKids,acaiBlack,acaiAçaideira,acaiLimocity])
   const containervalores = () => {
     if(butSelect1 === true && butSelect2 === true && butSelect3 === true && butSelect4 === true){
       return ('containervalores')
     }
     else return ('containervaloresActivo')
+  }
+
+   async function enviarPedido(){
+
+    const GZAPPY_URL = "https://api.gzappy.com/v1/message/send-message"
+
+  const response = await fetch(GZAPPY_URL, {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json',
+    'user_token_id': 'd05b1f8a-2ffd-4189-8987-ae80745bfc29'
+  },
+  body: JSON.stringify({
+    instance_id: 'MR3D1SNFR8KXISR3AUP8FVAK',
+    instance_token: 'b0df3c44-8028-4001-8550-7d14229d56d1',
+    message: [envioPedido],
+    phone: "5581997945281"
+  })
+})
+
+const data = await response.json()
+
+console.log(data)
+// { msg: 'Messages sent' }
   }
 
   return (
@@ -80,7 +123,6 @@ function Main() {
           <li>CEREAL</li>
           <li>CALDA/MOR</li>
           <li>BANANA</li>
-          <li>{somaTotal}</li>
         </ul>
         </div>
         <img className={openDesc1 === true ? 'tipoacai' : 'tipoacaiActivo'} src={imgKids} alt="imagens dos acais" />
@@ -153,7 +195,7 @@ function Main() {
         <div className={containervalores()}>
           <h1>Valor:</h1>
           <h2>R${somaTotal},00</h2>
-          <button className='butContinuar'>CONTINUAR</button>
+          <button onClick={enviarPedido} className='butContinuar'>CONTINUAR</button>
         </div>
       </section>
     </div>
