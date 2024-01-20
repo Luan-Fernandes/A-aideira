@@ -2,7 +2,7 @@ import './App.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import Main from './components/Main';
-import DadosPedido from './components/Main';
+import DadosPedido from './components/DadosPedido';
 import Personalizados from './components/Personalizados';
 import NavBar from './components/NavBar';
 function App() {

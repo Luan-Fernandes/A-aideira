@@ -1,0 +1,28 @@
+.ContainerPai{
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+form{
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+}
+form input, form textarea{
+    margin-bottom: 15px;
+    border-radius: 30px;
+    height: 30px;
+}
+form label{
+    margin-bottom: 4px;
+}
+
+.ButtonEnviar{
+    padding: 10px;
+    border-radius: 20px;
+    background-color: transparent;
+    color: white;
+    border: 1px solid;
+    font-family: 'Lemon', serif;
+  }

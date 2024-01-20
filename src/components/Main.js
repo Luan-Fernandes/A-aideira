@@ -1,11 +1,14 @@
 import './Main.css';
+/*Hooks*/
 import { useState,useEffect } from 'react'
+import { useNavigate } from 'react-router-dom';
 /*imgs*/
 import imgLimocity from "./img/image0.jpeg";
 import imgAcaideira from "./img/image2.png";
 import imgBlack from "./img/image3.png";
 import imgKids from "./img/image4.png";
 function Main() {
+  const history = useNavigate();
 
   const [openDesc1, setOpenDesc1] = useState(true);
   const [openDesc2, setOpenDesc2] = useState(true);
@@ -195,7 +198,7 @@ console.log(data)
         <div className={containervalores()}>
           <h1>Valor:</h1>
           <h2>R${somaTotal},00</h2>
-          <button onClick={enviarPedido} className='butContinuar'>CONTINUAR</button>
+          <button onClick={() => history('/dadospedido')} className='butContinuar'>CONTINUAR</button>
         </div>
       </section>
     </div>
