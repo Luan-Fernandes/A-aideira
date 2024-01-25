@@ -20,13 +20,18 @@ function Main() {
   const [butSelect3, setButSelect3] = useState(true);
   const [butSelect4, setButSelect4] = useState(true);
 
-  /*valores acai*/
-  const [acaiKids,setAcaiKids] = useState(0);
-  const [acaiBlack,setAcaiBlack] = useState(0);
-  const [acaiAçaideira,setAcaiAçaideira] = useState(0);
-  const [acaiLimocity,setAcaiLimocity] = useState(0);
-  const [somaTotal,setSomaTotal] = useState(0)
+  /*Quatidades dos acais*/
+  const [qKids,setQKids] = useState(0)
+  const [qBlack,setQBlack] = useState(0)
+  const [qAçaideira,setQAçaideira] = useState(0)
+  const [qLimocity,setQLimocity] = useState(0)
 
+  /*valores acai*/
+  const [acaiKids,setAcaiKids] = useState();
+  const [acaiBlack,setAcaiBlack] = useState();
+  const [acaiAçaideira,setAcaiAçaideira] = useState();
+  const [acaiLimocity,setAcaiLimocity] = useState();
+  
   /*msg acai*/
   const [opAcaiKids,setOpAcaiKids] = useState('');
   const [opAcaiBlack,setOpAcaiBlack] = useState('');
@@ -34,50 +39,58 @@ function Main() {
   const [opAcaiLimocity,setOpAcaiLimocity] = useState('');
   const [opAcai,setOpAcai] = useState('')
   const [envioPedido,setEnvioPedido] = useState("")
+  console.log(envioPedido)
   
 
   useEffect(() => {
     /*soma acai kids*/
-    if(butSelect1 === true){
+    if(butSelect1 === true || qKids === 0){
+      setQKids(0)
       setAcaiKids(0)
       setOpAcaiKids('')
     }
     else{
       setAcaiKids(12)
-      setOpAcaiKids('_KIDS_\n')
+      setOpAcaiKids(qKids + 'x' + '_KIDS_\n')
     }
     /*soma acai black*/
-    if(butSelect4 === true){
+    if(butSelect4 === true && qBlack === 0){
+      setQBlack(0)
       setAcaiBlack(0)
       setOpAcaiBlack('')
     }
     else{
       setAcaiBlack(12)
-      setOpAcaiBlack('_BLACK_ \n')
+      setOpAcaiBlack(qBlack + 'x' + '_BLACK_ \n')
+      
     }
     /*soma acaideira*/
-    if(butSelect3 === true){
+    if(butSelect3 === true || qAçaideira === 0){
+      setQAçaideira(0)
       setAcaiAçaideira(0)
       setOpAcaiAçaideira('')
     }
     else{
       setAcaiAçaideira(12)
-      setOpAcaiAçaideira('_AÇAIDEIRA_\n')
+      setOpAcaiAçaideira(qAçaideira + 'x' + '_AÇAIDEIRA_\n')
+      
     }
   /*soma limocity*/
-    if(butSelect2 === true){
+    if(butSelect2 === true ||qLimocity === 0){
       setAcaiLimocity(0)
       setOpAcaiLimocity('')
+      setQLimocity(0)
     }
     else{
+      
       setAcaiLimocity(12)
-      setOpAcaiLimocity('_LIMOCITY_ \n')
+      setOpAcaiLimocity(qLimocity + 'x' + '_LIMOCITY_ \n')
     }
     setOpAcai(opAcaiLimocity+opAcaiAçaideira+opAcaiBlack+opAcaiKids);
     setEnvioPedido("*PEDIDO* \n VOU QUERER:\n" + opAcai)
-    setSomaTotal(acaiKids+acaiBlack+acaiLimocity+acaiAçaideira);
+    
   
-  },[opAcai,opAcaiLimocity,opAcaiAçaideira,opAcaiBlack,opAcaiKids,butSelect1,butSelect2,butSelect3,butSelect4,somaTotal,acaiKids,acaiBlack,acaiAçaideira,acaiLimocity])
+  },[qLimocity,qAçaideira,qBlack,qKids,opAcai,opAcaiLimocity,opAcaiAçaideira,opAcaiBlack,opAcaiKids,butSelect1,butSelect2,butSelect3,butSelect4,acaiKids,acaiBlack,acaiAçaideira,acaiLimocity])
   const containervalores = () => {
     if(butSelect1 === true && butSelect2 === true && butSelect3 === true && butSelect4 === true){
       return ('containervalores')
@@ -118,7 +131,7 @@ console.log(data)
 
         <h2 className='nomesAcai'>*Açaí Kids 300ML</h2>
         <section onClick={() => setOpenDesc1(!openDesc1)} className='acai1'>
-        <div className={openDesc1 === true ? 'desacai' : 'desacaiActivo'}><h1 className='tiacai'>*KIDS</h1>
+        <div className={openDesc1 === true && butSelect1 === true ? 'desacai' : 'desacaiActivo'}><h1 className='tiacai'>*KIDS</h1>
         <ul className='textacai'>
           <li>M&M</li>
           <li>CHOCOBALL</li>
@@ -127,36 +140,45 @@ console.log(data)
           <li>CALDA/MOR</li>
           <li>BANANA</li>
         </ul>
+        <span className='quantidades' >{qKids}x</span>
         </div>
-        <img className={openDesc1 === true ? 'tipoacai' : 'tipoacaiActivo'} src={imgKids} alt="imagens dos acais" />
+        <img className={openDesc1 === true  && butSelect1 === true ? 'tipoacai' : 'tipoacaiActivo'} src={imgKids} alt="imagens dos acais" />
         </section>
         <div className='precosDms'>
-         R$12,00
-         <button onClick={() => setButSelect1(!butSelect1)} className={butSelect1 === true ? 'butSelect' : 'butSelectActivo'}>{butSelect1 === true ? 'SELECIONAR' : 'SELECIONADO'}</button>
+        <p className='valor'>R$12,00</p>
+        <div className='maisMenos'>
+        <div onClick={() => setQKids(qKids-1)} className={qKids <= 0 ? 'menosDesativo' : 'menos'}>-</div>
+        <button onClick={() => setButSelect1(!butSelect1)} className={butSelect1 === true ? 'butSelect' : 'butSelectActivo'}>{butSelect1 === true ? 'SELECIONAR' : 'SELECIONADO'}</button>
+        <div onClick={() => setQKids(qKids+1)} className={butSelect1 === true ? 'maisDesativo' : 'mais'}>+</div>
+        </div>
         </div>
 
         <h2 className='nomesAcai'>*Açaí Limocity 700ML</h2>
         <section onClick={() => setOpenDesc2(!openDesc2)} className='acai2'>
-        <div className={openDesc2 === true ? 'desacai' : 'desacaiActivo'}><h1 className='tiacai'>*LIMOCITY</h1>
+        <div className={openDesc2 === true && butSelect2 === true? 'desacai' : 'desacaiActivo'}><h1 className='tiacai'>*LIMOCITY</h1>
         <ul className='textacai'>
           <li>SORV/LIMÃO</li>
           <li>LEITE EM PÓ</li>
           <li>LEITE MOÇA</li>
           <li>MORANGO</li>
-          
         </ul>
+        <span className='quantidades' >{qLimocity}x</span>
         </div>
-        <img className={openDesc2 === true ? 'tipoacai' : 'tipoacaiActivo'} src={imgLimocity} alt="imagens dos acais" />
+        <img className={openDesc2 === true && butSelect2 === true? 'tipoacai' : 'tipoacaiActivo'} src={imgLimocity} alt="imagens dos acais" />
         </section>
         <div className='precosDms'>
-        R$12,00
+        <p className='valor'>R$12,00</p>
+        <div className='maisMenos'>
+        <div onClick={() => setQLimocity(qLimocity-1)} className={qLimocity <= 0 ? 'menosDesativo' : 'menos'}>-</div>
         <button onClick={() => setButSelect2(!butSelect2)} className={butSelect2 === true ? 'butSelect' : 'butSelectActivo'}>{butSelect2 === true ? 'SELECIONAR' : 'SELECIONADO'}</button>
+        <div onClick={() => setQLimocity(qLimocity+1)} className={butSelect2 === true ? 'maisDesativo' : 'mais'}>+</div>
+        </div>
         </div>
         
 
         <h2 className='nomesAcai'>*Açaideira 700ML</h2>
         <section onClick={() => setOpenDesc3(!openDesc3)} className='acai3'>
-        <div className={openDesc3 === true ? 'desacai' : 'desacaiActivo'}><h1 className='tiacai'>*AÇAIDEIRA</h1>
+        <div className={openDesc3 === true && butSelect3 === true ? 'desacai' : 'desacaiActivo'}><h1 className='tiacai'>*AÇAIDEIRA</h1>
         <ul className='textacai'>
           <li>AMENDOIM</li>
           <li>M&M</li>
@@ -167,17 +189,22 @@ console.log(data)
           <li>TUBIN</li>
           <li>CALDA/CHOC</li>
         </ul>
+        <span className='quantidades' >{qAçaideira}x</span>
         </div>
-        <img className={openDesc3 === true ? 'tipoacai' : 'tipoacaiActivo'} src={imgAcaideira} alt="imagens dos acais" />
+        <img className={openDesc3 === true && butSelect3 === true? 'tipoacai' : 'tipoacaiActivo'} src={imgAcaideira} alt="imagens dos acais" />
         </section>
         <div className='precosDms'>
-        R$12,00
+        <p className='valor'>R$12,00</p>
+        <div className='maisMenos'>
+        <div onClick={() => setQAçaideira(qAçaideira-1)} className={qAçaideira <= 0 ? 'menosDesativo' : 'menos'}>-</div>
         <button onClick={() => setButSelect3(!butSelect3)} className={butSelect3 === true ? 'butSelect' : 'butSelectActivo'}>{butSelect3 === true ? 'SELECIONAR' : 'SELECIONADO'}</button>
+        <div onClick={() => setQAçaideira(qAçaideira+1)} className={butSelect3 === true ? 'maisDesativo' : 'mais'}>+</div>
+        </div>
         </div>
 
         <h2 className='nomesAcai'>*Açaí Black 700ML</h2>
         <section onClick={() => setOpenDesc4(!openDesc4)} className='acai4'>
-        <div className={openDesc4 === true ? 'desacai' : 'desacaiActivo'}><h1 className='tiacai'>*BLACK</h1>
+        <div className={openDesc4 === true && butSelect4 === true ? 'desacai' : 'desacaiActivo'}><h1 className='tiacai'>*BLACK</h1>
         <ul className='textacai'>
           <li>CEREAL</li>
           <li>TUBIN</li>
@@ -186,18 +213,21 @@ console.log(data)
           <li>UVA PRETA</li>
           <li>CALDA/CHOC</li>
         </ul>
+        <span className='quantidades' >{qBlack}x</span>
         </div>
-        <img className={openDesc4 === true ? 'tipoacai' : 'tipoacaiActivo'} src={imgBlack} alt="imagens dos acais" />
+        <img className={openDesc4 === true && butSelect4 === true? 'tipoacai' : 'tipoacaiActivo'} src={imgBlack} alt="imagens dos acais" />
         </section>
         <div className='precosDms'>
-        R$12,00
+        <p className='valor'>R$12,00</p>
+        <div onClick={() => setQBlack(qBlack-1)} className={qBlack <= 0 ? 'menosDesativo' : 'menos'}>-</div>
         <button onClick={() => setButSelect4(!butSelect4)} className={butSelect4 === true ? 'butSelect' : 'butSelectActivo'}>{butSelect4 === true ? 'SELECIONAR' : 'SELECIONADO'}</button>
+        <div onClick={() => setQBlack(qBlack+1)} className={butSelect4 === true ? 'maisDesativo' : 'mais'}>+</div>
         </div>
       </main>
       <section className='valores'>
         <div className={containervalores()}>
           <h1>Valor:</h1>
-          <h2>R${somaTotal},00</h2>
+          <h2>R${(acaiKids*qKids)+(acaiBlack*qBlack)+(acaiLimocity*qLimocity)+(acaiAçaideira*qAçaideira)},00</h2>
           <button onClick={() => history('/dadospedido')} className='butContinuar'>CONTINUAR</button>
         </div>
       </section>
