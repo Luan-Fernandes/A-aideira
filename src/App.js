@@ -5,7 +5,12 @@ import Main from './components/Main';
 import DadosPedido from './components/DadosPedido';
 import Personalizados from './components/Personalizados';
 import NavBar from './components/NavBar';
+
+/*Hooks*/
+import { useState } from 'react'
 function App() {
+  const [envioPedido,setEnvioPedido] = useState("")
+  localStorage.setItem("pedido",envioPedido);
   return (
     <div className="App">
       <Router>
@@ -14,9 +19,9 @@ function App() {
 
           <Routes>
         
-          <Route exact path="/" element={<Main/>} />
+          <Route exact path="/" element={<Main envioPedido={envioPedido} setEnvioPedido={setEnvioPedido}/>} />
           <Route exact path="/personalizados" element={<Personalizados/>} />
-          <Route exact path="/dadospedido" element={<DadosPedido/>} />
+          <Route exact path="/dadospedido" element={<DadosPedido envioPedido={envioPedido} setEnvioPedido={setEnvioPedido}/>} />
 
           </Routes>
           

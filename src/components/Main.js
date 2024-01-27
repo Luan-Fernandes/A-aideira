@@ -7,7 +7,7 @@ import imgLimocity from "./img/image0.jpeg";
 import imgAcaideira from "./img/image2.png";
 import imgBlack from "./img/image3.png";
 import imgKids from "./img/image4.png";
-function Main() {
+function Main({envioPedido,setEnvioPedido,}) {
   const history = useNavigate();
 
   const [openDesc1, setOpenDesc1] = useState(true);
@@ -31,6 +31,7 @@ function Main() {
   const [acaiBlack,setAcaiBlack] = useState();
   const [acaiAçaideira,setAcaiAçaideira] = useState();
   const [acaiLimocity,setAcaiLimocity] = useState();
+  const valor = (acaiKids*qKids)+(acaiBlack*qBlack)+(acaiLimocity*qLimocity)+(acaiAçaideira*qAçaideira);
   
   /*msg acai*/
   const [opAcaiKids,setOpAcaiKids] = useState('');
@@ -38,7 +39,7 @@ function Main() {
   const [opAcaiAçaideira,setOpAcaiAçaideira] = useState('');
   const [opAcaiLimocity,setOpAcaiLimocity] = useState('');
   const [opAcai,setOpAcai] = useState('')
-  const [envioPedido,setEnvioPedido] = useState("")
+  
   console.log(envioPedido)
   
 
@@ -51,7 +52,7 @@ function Main() {
     }
     else{
       setAcaiKids(12)
-      setOpAcaiKids(qKids + 'x' + '_KIDS_\n')
+      setOpAcaiKids("\n"+"_" +qKids + 'x' + 'KIDS_\n'+ "-M&M\n"+ "-CHOCOBALL\n"+ "-JUJUBA\n"+ "-CEREAL\n"+ "-CALDA/MOR\n"+ "-BANANA\n")
     }
     /*soma acai black*/
     if(butSelect4 === true && qBlack === 0){
@@ -61,7 +62,7 @@ function Main() {
     }
     else{
       setAcaiBlack(12)
-      setOpAcaiBlack(qBlack + 'x' + '_BLACK_ \n')
+      setOpAcaiBlack("\n"+"_" +qBlack + 'x' + 'BLACK_ \n'+ "-CEREAL\n"+ "-TUBIN\n"+ "-NUTELLA\n"+ "-CHOC/M.AMAR\n"+ "-UVA PRETA\n"+ "-CALDA/CHOC\n")
       
     }
     /*soma acaideira*/
@@ -72,7 +73,7 @@ function Main() {
     }
     else{
       setAcaiAçaideira(12)
-      setOpAcaiAçaideira(qAçaideira + 'x' + '_AÇAIDEIRA_\n')
+      setOpAcaiAçaideira("\n"+"_" +qAçaideira + 'x' + 'AÇAIDEIRA_\n'+ "AMENDOIM\n"+ "M&M\n"+ "NUTELLA\n"+ "CHOC/BRANCO\n"+ "MORANGO\n"+ "BANANA\n" + "TUBIN\n"+ "CALDA/CHOC\n")
       
     }
   /*soma limocity*/
@@ -84,13 +85,15 @@ function Main() {
     else{
       
       setAcaiLimocity(12)
-      setOpAcaiLimocity(qLimocity + 'x' + '_LIMOCITY_ \n')
+      setOpAcaiLimocity("\n"+"_" +qLimocity + 'x' + '-LIMOCITY_ \n'+ "-SORV/LIMÃO\n"+ "-LEITE EM PÓ\n"+ "-LEITE MOÇA\n"+ "-MORANGO\n")
     }
     setOpAcai(opAcaiLimocity+opAcaiAçaideira+opAcaiBlack+opAcaiKids);
-    setEnvioPedido("*PEDIDO* \n VOU QUERER:\n" + opAcai)
+
+    setEnvioPedido("*PEDIDO* \n\n" + "VOU QUERER:\n\n" + opAcai + "\n" + "Valor a pagar:"+ "R$"+valor + ",00" )
     
   
-  },[qLimocity,qAçaideira,qBlack,qKids,opAcai,opAcaiLimocity,opAcaiAçaideira,opAcaiBlack,opAcaiKids,butSelect1,butSelect2,butSelect3,butSelect4,acaiKids,acaiBlack,acaiAçaideira,acaiLimocity])
+  },[valor,setEnvioPedido,qLimocity,qAçaideira,qBlack,qKids,opAcai,opAcaiLimocity,opAcaiAçaideira,opAcaiBlack,opAcaiKids,butSelect1,butSelect2,butSelect3,butSelect4,acaiKids,acaiBlack,acaiAçaideira,acaiLimocity])
+  
   const containervalores = () => {
     if(butSelect1 === true && butSelect2 === true && butSelect3 === true && butSelect4 === true){
       return ('containervalores')
@@ -98,29 +101,6 @@ function Main() {
     else return ('containervaloresActivo')
   }
 
-   async function enviarPedido(){
-
-    const GZAPPY_URL = "https://api.gzappy.com/v1/message/send-message"
-
-  const response = await fetch(GZAPPY_URL, {
-  method: 'POST',
-  headers: {
-    'Content-Type': 'application/json',
-    'user_token_id': 'd05b1f8a-2ffd-4189-8987-ae80745bfc29'
-  },
-  body: JSON.stringify({
-    instance_id: 'MR3D1SNFR8KXISR3AUP8FVAK',
-    instance_token: 'b0df3c44-8028-4001-8550-7d14229d56d1',
-    message: [envioPedido],
-    phone: "5581997945281"
-  })
-})
-
-const data = await response.json()
-
-console.log(data)
-// { msg: 'Messages sent' }
-  }
 
   return (
     <div className="App">
@@ -227,7 +207,7 @@ console.log(data)
       <section className='valores'>
         <div className={containervalores()}>
           <h1>Valor:</h1>
-          <h2>R${(acaiKids*qKids)+(acaiBlack*qBlack)+(acaiLimocity*qLimocity)+(acaiAçaideira*qAçaideira)},00</h2>
+          <h2>R${valor},00</h2>
           <button onClick={() => history('/dadospedido')} className='butContinuar'>CONTINUAR</button>
         </div>
       </section>

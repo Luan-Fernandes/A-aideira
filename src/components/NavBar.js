@@ -1,4 +1,4 @@
-import { useState,useEffect } from 'react';
+import { useState } from 'react';
 import '../App.css';
 import { useNavigate } from 'react-router-dom';
 import logo from "./img/image6-removebg-preview (2).png"
