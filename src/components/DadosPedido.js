@@ -25,7 +25,7 @@ function DadosPedido({envioPedido,setEnvioPedido}) {
     instance_id: '1S3YM80P0S8SXQT3X27E9BYV',
     instance_token: '75eef91a-a744-4e2d-b7a0-456bfa2e9454',
     message: [pedidoMsg],
-    phone: "5581996680552"
+    phone: [CelularEdit]
   })
 })
 
