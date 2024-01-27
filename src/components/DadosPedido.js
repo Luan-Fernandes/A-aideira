@@ -19,13 +19,13 @@ function DadosPedido({envioPedido,setEnvioPedido}) {
   method: 'POST',
   headers: {
     'Content-Type': 'application/json',
-    'user_token_id': 'd05b1f8a-2ffd-4189-8987-ae80745bfc29'
+    'user_token_id': 'a094b463-1b0d-4b4c-bc56-15c785f7c591'
   },
   body: JSON.stringify({
-    instance_id: 'MR3D1SNFR8KXISR3AUP8FVAK',
-    instance_token: 'b0df3c44-8028-4001-8550-7d14229d56d1',
+    instance_id: '1S3YM80P0S8SXQT3X27E9BYV',
+    instance_token: '75eef91a-a744-4e2d-b7a0-456bfa2e9454',
     message: [pedidoMsg],
-    phone: [CelularEdit]
+    phone: "5581996680552"
   })
 })
 
@@ -53,7 +53,7 @@ console.log(data)
             <label> Observação:</label>
             <input type="text" onChange={(e) => setObservacao(e.target.value)}/>
             
-            <button onClick={() => enviarPedido} className='ButtonEnviar'> Enviar Pedido</button>
+            <button onClick={enviarPedido} className='ButtonEnviar'> Enviar Pedido</button>
         </form>
       </div>
     );
