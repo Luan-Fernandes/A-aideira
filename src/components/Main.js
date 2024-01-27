@@ -40,7 +40,6 @@ function Main({envioPedido,setEnvioPedido,}) {
   const [opAcaiLimocity,setOpAcaiLimocity] = useState('');
   const [opAcai,setOpAcai] = useState('')
   
-  console.log(envioPedido)
   
 
   useEffect(() => {
@@ -101,8 +100,24 @@ function Main({envioPedido,setEnvioPedido,}) {
     else return ('containervaloresActivo')
   }
 
+  async function enviarPedido(){
 
+    const GZAPPY_URL = "https://api.gzappy.com/v1/message/send-message"
 
+  const response = await fetch(GZAPPY_URL, {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json',
+    'user_token_id': 'a094b463-1b0d-4b4c-bc56-15c785f7c591'
+  },
+  body: JSON.stringify({
+    instance_id: '1S3YM80P0S8SXQT3X27E9BYV',
+    instance_token: '75eef91a-a744-4e2d-b7a0-456bfa2e9454',
+    message: [envioPedido],
+    phone: "5581996680552"
+  })
+})
+  }
   return (
     <div className="App">
       
@@ -209,7 +224,7 @@ function Main({envioPedido,setEnvioPedido,}) {
         <div className={containervalores()}>
           <h1>Valor:</h1>
           <h2>R${valor},00</h2>
-          <button onClick={() => history('/dadospedido')} className='butContinuar'>CONTINUAR</button>
+          <button onClick={() => {history('/dadospedido')}} className='butContinuar'>CONTINUAR</button>
         </div>
       </section>
     </div>

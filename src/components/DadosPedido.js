@@ -10,9 +10,8 @@ function DadosPedido({envioPedido,setEnvioPedido}) {
   const [observacao,setObservacao] = useState("")
   const pedidoMsg = ("*Bem vindo*" + "*_" + nome + "_*\n\n" +envioPedido+ "\n\n" + "*Endereço*\n" + "_"+endereco+"_\n\n"+"*Complemento*\n" + "_"+complemento+"_\n\n"+ "*Observação*\n" + "_"+observacao + "\n\n" + "*!!!CASO O PAGAMENTO FOR VIA PIX, POR FAVOR, ENVIE O COMPROVANTE*" +"\n\n"+ "*OBRIGADO PELA PREFERÊNCIA*") 
   const CelularEdit = "5581"+celular;
-  console.log(CelularEdit)
-
-  async function enviarPedido(){
+  
+  async function PedidoCompleto(){
 
     const GZAPPY_URL = "https://api.gzappy.com/v1/message/send-message"
 
@@ -20,11 +19,11 @@ function DadosPedido({envioPedido,setEnvioPedido}) {
   method: 'POST',
   headers: {
     'Content-Type': 'application/json',
-    'user_token_id': 'a094b463-1b0d-4b4c-bc56-15c785f7c591'
+    'user_token_id': '9ce7cdb5-f347-4260-b14c-34844e320b75'
   },
   body: JSON.stringify({
-    instance_id: '1S3YM80P0S8SXQT3X27E9BYV',
-    instance_token: '75eef91a-a744-4e2d-b7a0-456bfa2e9454',
+    instance_id: 'GTTPCDN0YT7UP2PZW3QFPS27',
+    instance_token: '7d13ed94-c404-45a7-bd20-3f682c381901',
     message: [pedidoMsg],
     phone: [CelularEdit]
   })
@@ -34,6 +33,7 @@ const data = await response.json()
 
 console.log(data)
 // { msg: 'Messages sent' }
+
   }
     return (
       <div className='ContainerPai'>
@@ -54,7 +54,7 @@ console.log(data)
             <label> Observação:</label>
             <input type="text" onChange={(e) => setObservacao(e.target.value)}/>
             
-            <button onClick={enviarPedido()} className='ButtonEnviar'> Enviar Pedido</button>
+            <button onClick={PedidoCompleto} className='ButtonEnviar'> Enviar Pedido</button>
         </form>
       </div>
     );
