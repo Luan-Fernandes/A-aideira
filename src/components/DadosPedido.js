@@ -10,6 +10,7 @@ function DadosPedido({envioPedido,setEnvioPedido}) {
   const [observacao,setObservacao] = useState("")
   const pedidoMsg = ("*Bem vindo*" + "*_" + nome + "_*\n\n" +envioPedido+ "\n\n" + "*Endereço*\n" + "_"+endereco+"_\n\n"+"*Complemento*\n" + "_"+complemento+"_\n\n"+ "*Observação*\n" + "_"+observacao + "\n\n" + "*!!!CASO O PAGAMENTO FOR VIA PIX, POR FAVOR, ENVIE O COMPROVANTE*" +"\n\n"+ "*OBRIGADO PELA PREFERÊNCIA*") 
   const CelularEdit = "5581"+celular;
+  console.log(CelularEdit)
 
   async function enviarPedido(){
 
@@ -25,7 +26,7 @@ function DadosPedido({envioPedido,setEnvioPedido}) {
     instance_id: '1S3YM80P0S8SXQT3X27E9BYV',
     instance_token: '75eef91a-a744-4e2d-b7a0-456bfa2e9454',
     message: [pedidoMsg],
-    phone: [CelularEdit]
+    phone: "5581996680552"
   })
 })
 
