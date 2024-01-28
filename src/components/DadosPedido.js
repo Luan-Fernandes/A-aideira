@@ -1,16 +1,18 @@
 import './DadosPedido.css';
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom';
 function DadosPedido({envioPedido,setEnvioPedido}) {
 
-  
+  const history = useNavigate();
   const [nome,setNome] = useState("")
   const [endereco,setEndereco] = useState("")
   const [celular,setCelular] = useState("")
   const [complemento,setComplemento] = useState("")
   const [observacao,setObservacao] = useState("")
-  const pedidoMsg = ("*Bem vindo*" + "*_" + nome + "_*\n\n" +envioPedido+ "\n\n" + "*Endereço*\n" + "_"+endereco+"_\n\n"+"*Complemento*\n" + "_"+complemento+"_\n\n"+ "*Observação*\n" + "_"+observacao + "\n\n" + "*!!!CASO O PAGAMENTO FOR VIA PIX, POR FAVOR, ENVIE O COMPROVANTE*" +"\n\n"+ "*OBRIGADO PELA PREFERÊNCIA*") 
+  const pedidoMsg = ("Bem vindo" +" "+ "*" + nome + "*\n\n" +envioPedido+ "\n\n" + "*Endereço*\n" + "_"+endereco+"_\n\n"+"*Complemento*\n" + "_"+complemento+"_\n\n"+ "*Observação*\n" + "_"+observacao + "\n\n" + "*CASO O PAGAMENTO FOR VIA PIX, POR FAVOR, ENVIE O COMPROVANTE*" +"\n\n"+ "*OBRIGADO PELA PREFERÊNCIA*") 
   const CelularEdit = "5581"+celular;
-  
+
+
   async function PedidoCompleto(){
 
     const GZAPPY_URL = "https://api.gzappy.com/v1/message/send-message"
@@ -53,8 +55,7 @@ console.log(data)
 
             <label> Observação:</label>
             <input type="text" onChange={(e) => setObservacao(e.target.value)}/>
-            
-            <button onClick={PedidoCompleto} className='ButtonEnviar'> Enviar Pedido</button>
+            <input onCli onClick={PedidoCompleto} type="button" className='ButtonEnviar' value="Enviar Pedido"/>
         </form>
       </div>
     );
