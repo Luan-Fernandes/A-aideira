@@ -15,7 +15,7 @@ function App() {
     <div className="App">
       <Router>
  
-      <NavBar></NavBar>
+      
 
           <Routes>
         
@@ -24,7 +24,7 @@ function App() {
           <Route exact path="/dadospedido" element={<DadosPedido envioPedido={envioPedido} setEnvioPedido={setEnvioPedido}/>} />
 
           </Routes>
-          
+          <NavBar></NavBar>
       </Router>
     </div>
   );

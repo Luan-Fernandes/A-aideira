@@ -13,6 +13,8 @@ header{
   background-color: #7900ac;
   color: white;
   border-bottom: 3px solid white;
+  position: fixed;
+  top: 0;
 }
 .perssonalisar{
   padding: 9px;
