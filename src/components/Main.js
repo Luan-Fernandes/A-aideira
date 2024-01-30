@@ -224,7 +224,7 @@ function Main({envioPedido,setEnvioPedido,}) {
         <div className={containervalores()}>
           <h1>Valor:</h1>
           <h2>R${valor},00</h2>
-          <button onClick={() => {history('/dadospedido')}} className='butContinuar'>CONTINUAR</button>
+          <button onClick={() => valor === 0 ? alert("Adicione pelo menos um Açai!") : history("/dadospedido")} className='butContinuar'>CONTINUAR</button>
         </div>
       </section>
     </div>

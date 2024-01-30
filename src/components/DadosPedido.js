@@ -3,6 +3,16 @@ import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 function DadosPedido({envioPedido,setEnvioPedido}) {
 
+  const enviarMsg = () => {
+    if(nome === "" || endereco === "" || celular === "" || complemento === ""){
+      alert("Preencha os campos obrigatorios marcados com *.")
+    }else{
+      history("/personalizados")
+      return PedidoCompleto()
+    }
+    
+  }
+
   const history = useNavigate();
   const [nome,setNome] = useState("")
   const [endereco,setEndereco] = useState("")
@@ -39,23 +49,23 @@ console.log(data)
   }
     return (
       <div className='ContainerPai'>
-        <form>
-             <label> Nome:</label>
+        <form className='containerFilho'>
+             <label> *Nome:</label>
              <input type="text" onChange={(e) => setNome(e.target.value)}/>
             
-            <label> Endereço:</label>
+            <label> *Endereço:</label>
             <input type="text" onChange={(e) => setEndereco(e.target.value)}/>
 
-            <label> Celular:</label>
+            <label> *Celular:</label>
             <input type="number" onChange={(e) => setCelular(e.target.value)}/>
 
-            <label> Complemento:</label>
+            <label> *Referência:</label>
             <input type="text" onChange={(e) => setComplemento(e.target.value)}/>
             
 
             <label> Observação:</label>
             <input type="text" onChange={(e) => setObservacao(e.target.value)}/>
-            <input onCli onClick={PedidoCompleto} type="button" className='ButtonEnviar' value="Enviar Pedido"/>
+            <input onCli onClick={enviarMsg} type="button" className='ButtonEnviar' value="Enviar Pedido"/>
         </form>
       </div>
     );
