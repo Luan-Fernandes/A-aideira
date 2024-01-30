@@ -5,6 +5,7 @@ import Main from './components/Main';
 import DadosPedido from './components/DadosPedido';
 import Personalizados from './components/Personalizados';
 import NavBar from './components/NavBar';
+import Footer from './components/Footer';
 
 /*Hooks*/
 import { useState } from 'react'
@@ -15,7 +16,7 @@ function App() {
     <div className="App">
       <Router>
  
-      
+      <Footer></Footer>
 
           <Routes>
         
@@ -25,6 +26,7 @@ function App() {
 
           </Routes>
           <NavBar></NavBar>
+          
       </Router>
     </div>
   );

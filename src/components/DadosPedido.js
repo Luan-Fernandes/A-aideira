@@ -25,7 +25,7 @@ function DadosPedido({envioPedido,setEnvioPedido}) {
   const [celular,setCelular] = useState("")
   const [complemento,setComplemento] = useState("")
   const [observacao,setObservacao] = useState("--")
-  const pedidoMsg = ("**Pedidos Açaideira**\n\n"+"Bem vindo" +" "+ "*" + nome + "*\n\n" +envioPedido+ "\n\n" + "*Endereço*\n" +endereco+"\n\n"+"*Complemento*\n"+complemento+"\n\n"+ "Forma de Pagamento:"+step+"\n\n"+ "*Observação*\n"+observacao + "\n\n" + "*CASO O PAGAMENTO FOR VIA PIX, POR FAVOR, ENVIE O COMPROVANTE*" +"\n\n"+ "*OBRIGADO PELA PREFERÊNCIA*") 
+  const pedidoMsg = ("**Pedidos Açaideira**\n\n"+"Bem vindo" +" "+ "*" + nome + "*\n\n" +envioPedido+ "\n\n" + "*Endereço*\n" +endereco+"\n\n"+"*Complemento*\n"+complemento+"\n\n"+ "*Forma de Pagamento:*"+step+"\n\n"+ "*Observação*\n"+observacao + "\n\n" + "*CASO O PAGAMENTO FOR VIA PIX, POR FAVOR, ENVIE O COMPROVANTE*" +"\n\n"+ "*OBRIGADO PELA PREFERÊNCIA*") 
   const CelularEdit = "5581"+celular;
   console.log(pedidoMsg)
 

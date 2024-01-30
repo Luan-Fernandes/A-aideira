@@ -215,9 +215,11 @@ function Main({envioPedido,setEnvioPedido,}) {
         </section>
         <div className='precosDms'>
         <p className='valor'>R$12,00</p>
+        <div className='maisMenos'>
         <div onClick={() => setQBlack(qBlack-1)} className={qBlack <= 0 ? 'menosDesativo' : 'menos'}>-</div>
         <button onClick={() => setButSelect4(!butSelect4)} className={butSelect4 === true ? 'butSelect' : 'butSelectActivo'}>{butSelect4 === true ? 'SELECIONAR' : 'SELECIONADO'}</button>
         <div onClick={() => setQBlack(qBlack+1)} className={butSelect4 === true ? 'maisDesativo' : 'mais'}>+</div>
+        </div>
         </div>
       </main>
       <section className='valores'>

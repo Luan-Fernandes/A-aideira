@@ -2,13 +2,14 @@ main{
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-top:90px ;
   }
   .nomesAcai{
     font-size: 20px;
   }
   .acai1,.acai2,.acai3,.acai4{
     height: 300px;
-    width: 100%;
+    width: 24.5rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -67,7 +68,7 @@ main{
     margin-bottom: 90px;
     display: flex;
     width: 100%;
-    justify-content: space-evenly;
+    justify-content: space-around;
     align-items: center;
   }
   .butSelect{
@@ -119,7 +120,7 @@ main{
     font-size: 30px;
   }
   .valor{
-    margin-left: 5rem;
+    margin-left: 3.5rem;
   }
   
   /*-------------------------------------*/
