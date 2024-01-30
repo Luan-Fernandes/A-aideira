@@ -83,7 +83,7 @@ function Main({envioPedido,setEnvioPedido,}) {
     }
     else{
       
-      setAcaiLimocity(4)
+      setAcaiLimocity(45)
       setOpAcaiLimocity("\n"+"*" +qLimocity + 'x' +" "+ 'LIMOCITY* \n'+ "-SORV/LIMÃO\n"+ "-LEITE EM PÓ\n"+ "-LEITE MOÇA\n"+ "-MORANGO\n"+"--------------------------------")
     }
     setOpAcai(opAcaiLimocity+opAcaiAçaideira+opAcaiBlack+opAcaiKids);
