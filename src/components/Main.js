@@ -50,8 +50,8 @@ function Main({envioPedido,setEnvioPedido,}) {
       setOpAcaiKids('')
     }
     else{
-      setAcaiKids(12)
-      setOpAcaiKids("\n"+"_" +qKids + 'x' + 'KIDS_\n'+ "-M&M\n"+ "-CHOCOBALL\n"+ "-JUJUBA\n"+ "-CEREAL\n"+ "-CALDA/MOR\n"+ "-BANANA\n")
+      setAcaiKids(1)
+      setOpAcaiKids("\n"+"*" +qKids + 'x' +" " + 'KIDS*\n'+ "-M&M\n"+ "-CHOCOBALL\n"+ "-JUJUBA\n"+ "-CEREAL\n"+ "-CALDA/MOR\n"+ "-BANANA\n"+"--------------------------------")
     }
     /*soma acai black*/
     if(butSelect4 === true && qBlack === 0){
@@ -60,8 +60,8 @@ function Main({envioPedido,setEnvioPedido,}) {
       setOpAcaiBlack('')
     }
     else{
-      setAcaiBlack(12)
-      setOpAcaiBlack("\n"+"_" +qBlack + 'x' + 'BLACK_ \n'+ "-CEREAL\n"+ "-TUBIN\n"+ "-NUTELLA\n"+ "-CHOC/M.AMAR\n"+ "-UVA PRETA\n"+ "-CALDA/CHOC\n")
+      setAcaiBlack(2)
+      setOpAcaiBlack("\n"+"*" +qBlack + 'x' + " " + 'BLACK* \n'+ "-CEREAL\n"+ "-TUBIN\n"+ "-NUTELLA\n"+ "-CHOC/M.AMAR\n"+ "-UVA PRETA\n"+ "-CALDA/CHOC\n"+"--------------------------------")
       
     }
     /*soma acaideira*/
@@ -71,8 +71,8 @@ function Main({envioPedido,setEnvioPedido,}) {
       setOpAcaiAçaideira('')
     }
     else{
-      setAcaiAçaideira(12)
-      setOpAcaiAçaideira("\n"+"_" +qAçaideira + 'x' + 'AÇAIDEIRA_\n'+ "AMENDOIM\n"+ "M&M\n"+ "NUTELLA\n"+ "CHOC/BRANCO\n"+ "MORANGO\n"+ "BANANA\n" + "TUBIN\n"+ "CALDA/CHOC\n")
+      setAcaiAçaideira(3)
+      setOpAcaiAçaideira("\n"+"*" +qAçaideira + 'x' +" " + 'AÇAIDEIRA*\n'+ "AMENDOIM\n"+ "M&M\n"+ "NUTELLA\n"+ "CHOC/BRANCO\n"+ "MORANGO\n"+ "BANANA\n" + "TUBIN\n"+ "CALDA/CHOC\n"+"--------------------------------")
       
     }
   /*soma limocity*/
@@ -83,12 +83,12 @@ function Main({envioPedido,setEnvioPedido,}) {
     }
     else{
       
-      setAcaiLimocity(12)
-      setOpAcaiLimocity("\n"+"_" +qLimocity + 'x' + '-LIMOCITY_ \n'+ "-SORV/LIMÃO\n"+ "-LEITE EM PÓ\n"+ "-LEITE MOÇA\n"+ "-MORANGO\n")
+      setAcaiLimocity(4)
+      setOpAcaiLimocity("\n"+"*" +qLimocity + 'x' +" "+ 'LIMOCITY* \n'+ "-SORV/LIMÃO\n"+ "-LEITE EM PÓ\n"+ "-LEITE MOÇA\n"+ "-MORANGO\n"+"--------------------------------")
     }
     setOpAcai(opAcaiLimocity+opAcaiAçaideira+opAcaiBlack+opAcaiKids);
 
-    setEnvioPedido("*PEDIDO* \n\n" + "VOU QUERER:\n\n" + opAcai + "\n" + "Valor a pagar:"+ "R$"+valor + ",00" )
+    setEnvioPedido("VOU QUERER:\n\n" + opAcai + "\n" + "Valor a pagar:"+ "R$"+valor + ",00" )
     
   
   },[valor,setEnvioPedido,qLimocity,qAçaideira,qBlack,qKids,opAcai,opAcaiLimocity,opAcaiAçaideira,opAcaiBlack,opAcaiKids,butSelect1,butSelect2,butSelect3,butSelect4,acaiKids,acaiBlack,acaiAçaideira,acaiLimocity])
