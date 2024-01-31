@@ -58,16 +58,16 @@ console.log(data)
       <div className='ContainerPai'>
         <form className='containerFilho'>
              <label> *Nome:</label>
-             <input type="text" onChange={(e) => setNome(e.target.value)}/>
+             <input placeholder='Fabio Santos' type="text" onChange={(e) => setNome(e.target.value)}/>
             
             <label> *Endereço:</label>
-            <input type="text" onChange={(e) => setEndereco(e.target.value)}/>
+            <input placeholder='Bairro, Rua e Número' type="text" onChange={(e) => setEndereco(e.target.value)}/>
 
             <label> *Celular:</label>
-            <input type="number" onChange={(e) => setCelular(e.target.value)}/>
+            <input placeholder='999999999' type="number" onChange={(e) => setCelular(e.target.value)}/>
 
             <label> *Referência:</label>
-            <input type="text" onChange={(e) => setComplemento(e.target.value)}/>
+            <input placeholder='Próximo ao Mercadinho'  type="text" onChange={(e) => setComplemento(e.target.value)}/>
             
             <div className='pagamento'>
             <label>*Forma de Pagamento:</label>
