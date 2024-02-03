@@ -12,7 +12,7 @@ function DadosPedido({envioPedido,setEnvioPedido}) {
     if(nome === "" || endereco === "" || celular === "" || complemento === ""){
       alert("Preencha os campos obrigatorios marcados com *.")
     }else{
-      history("/personalizados")
+      history("/pedidoconfirmado")
       return PedidoCompleto()
     }
     

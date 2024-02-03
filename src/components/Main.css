@@ -202,10 +202,10 @@ main{
     transition: .5s;
     color: white;
     box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.452);
-    animation: container 1s;
+    animation: containerV 1s;
   }  
 
-@keyframes container {
+@keyframes containerV {
     0% {
       transform: translateX(48px);
       animation-timing-function: ease-in;
