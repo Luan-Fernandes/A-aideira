@@ -24,7 +24,7 @@ function App() {
           <Route exact path="/" element={<Main envioPedido={envioPedido} setEnvioPedido={setEnvioPedido}/>} />
           <Route exact path="/personalizados" element={<Personalizados/>} />
           <Route exact path="/dadospedido" element={<DadosPedido envioPedido={envioPedido} setEnvioPedido={setEnvioPedido}/>} />
-          <Route exact path="/pedidoconfirmado" element={<PedidoConfirmado/>} />
+          <Route exact path="/pedidoconfirmado" element={<PedidoConfirmado envioPedido={envioPedido}/>} />
 
           </Routes>
           <NavBar></NavBar>

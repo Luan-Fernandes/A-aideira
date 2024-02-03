@@ -72,13 +72,12 @@ main{
   
   }
   .tipoacai{
-    transform: translateX(-90px);
+    transform: translateX(-110px);
     background-color: black;
   }
   .desacai{
-    transform: translateX(90px);
+    transform: translateX(125px);
     background-color: aliceblue;
-    opacity: 0;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -167,6 +166,7 @@ main{
   .valor{
     margin-left: 3.5rem;
   }
+
   
   /*-------------------------------------*/
   .valores{
