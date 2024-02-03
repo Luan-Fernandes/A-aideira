@@ -50,7 +50,7 @@ function Main({envioPedido,setEnvioPedido,}) {
       setOpAcaiKids('')
     }
     else{
-      setAcaiKids(1)
+      setAcaiKids(9)
       setOpAcaiKids("\n"+"*" +qKids + 'x' +" " + 'KIDS*\n'+ "-M&M\n"+ "-CHOCOBALL\n"+ "-JUJUBA\n"+ "-CEREAL\n"+ "-CALDA/MOR\n"+ "-BANANA\n"+"--------------------------------")
     }
     /*soma acai black*/
@@ -60,7 +60,7 @@ function Main({envioPedido,setEnvioPedido,}) {
       setOpAcaiBlack('')
     }
     else{
-      setAcaiBlack(2)
+      setAcaiBlack(15)
       setOpAcaiBlack("\n"+"*" +qBlack + 'x' + " " + 'BLACK* \n'+ "-CEREAL\n"+ "-TUBIN\n"+ "-NUTELLA\n"+ "-CHOC/M.AMAR\n"+ "-UVA PRETA\n"+ "-CALDA/CHOC\n"+"--------------------------------")
       
     }
@@ -71,7 +71,7 @@ function Main({envioPedido,setEnvioPedido,}) {
       setOpAcaiAçaideira('')
     }
     else{
-      setAcaiAçaideira(3)
+      setAcaiAçaideira(16)
       setOpAcaiAçaideira("\n"+"*" +qAçaideira + 'x' +" " + 'AÇAIDEIRA*\n'+ "AMENDOIM\n"+ "M&M\n"+ "NUTELLA\n"+ "CHOC/BRANCO\n"+ "MORANGO\n"+ "BANANA\n" + "TUBIN\n"+ "CALDA/CHOC\n"+"--------------------------------")
       
     }
@@ -83,12 +83,12 @@ function Main({envioPedido,setEnvioPedido,}) {
     }
     else{
       
-      setAcaiLimocity(2)
+      setAcaiLimocity(12)
       setOpAcaiLimocity("\n"+"*" +qLimocity + 'x' +" "+ 'LIMOCITY* \n'+ "-SORV/LIMÃO\n"+ "-LEITE EM PÓ\n"+ "-LEITE MOÇA\n"+ "-MORANGO\n"+"--------------------------------")
     }
     setOpAcai(opAcaiLimocity+opAcaiAçaideira+opAcaiBlack+opAcaiKids);
 
-    setEnvioPedido("VOU QUERER:\n\n" + opAcai + "\n" + "Valor a pagar:"+ "R$"+valor + ",00" )
+    setEnvioPedido("VOU QUERER:\n\n" + opAcai + "\n" + "*Valor a pagar:*"+" "+ "R$"+valor + ",00" )
     
   
   },[valor,setEnvioPedido,qLimocity,qAçaideira,qBlack,qKids,opAcai,opAcaiLimocity,opAcaiAçaideira,opAcaiBlack,opAcaiKids,butSelect1,butSelect2,butSelect3,butSelect4,acaiKids,acaiBlack,acaiAçaideira,acaiLimocity])
@@ -98,25 +98,6 @@ function Main({envioPedido,setEnvioPedido,}) {
       return ('containervalores')
     }
     else return ('containervaloresActivo')
-  }
-
-  async function enviarPedido(){
-
-    const GZAPPY_URL = "https://api.gzappy.com/v1/message/send-message"
-
-  const response = await fetch(GZAPPY_URL, {
-  method: 'POST',
-  headers: {
-    'Content-Type': 'application/json',
-    'user_token_id': 'a094b463-1b0d-4b4c-bc56-15c785f7c591'
-  },
-  body: JSON.stringify({
-    instance_id: '1S3YM80P0S8SXQT3X27E9BYV',
-    instance_token: '75eef91a-a744-4e2d-b7a0-456bfa2e9454',
-    message: [envioPedido],
-    phone: "5581996680552"
-  })
-})
   }
   return (
     <div className="App">
@@ -141,11 +122,15 @@ function Main({envioPedido,setEnvioPedido,}) {
         <img className={openDesc1 === true  && butSelect1 === true ? 'tipoacai' : 'tipoacaiActivo'} src={imgKids} alt="imagens dos acais" />
         </section>
         <div className='precosDms'>
-        <p className='valor'>R$12,00</p>
+        <p className='valor'>R$9,00</p>
         <div className='maisMenos'>
+        <div className='containerMa'>
         <div onClick={() => setQKids(qKids-1)} className={qKids <= 0 ? 'menosDesativo' : 'menos'}>-</div>
+        </div>
         <button onClick={() => setButSelect1(!butSelect1)} className={butSelect1 === true ? 'butSelect' : 'butSelectActivo'}>{butSelect1 === true ? 'SELECIONAR' : 'SELECIONADO'}</button>
+        <div className='containerMe'>
         <div onClick={() => setQKids(qKids+1)} className={butSelect1 === true ? 'maisDesativo' : 'mais'}>+</div>
+        </div>
         </div>
         </div>
 
@@ -165,9 +150,13 @@ function Main({envioPedido,setEnvioPedido,}) {
         <div className='precosDms'>
         <p className='valor'>R$12,00</p>
         <div className='maisMenos'>
+        <div className='containerMa'>
         <div onClick={() => setQLimocity(qLimocity-1)} className={qLimocity <= 0 ? 'menosDesativo' : 'menos'}>-</div>
+        </div>
         <button onClick={() => setButSelect2(!butSelect2)} className={butSelect2 === true ? 'butSelect' : 'butSelectActivo'}>{butSelect2 === true ? 'SELECIONAR' : 'SELECIONADO'}</button>
+        <div className='containerMe'>
         <div onClick={() => setQLimocity(qLimocity+1)} className={butSelect2 === true ? 'maisDesativo' : 'mais'}>+</div>
+        </div>
         </div>
         </div>
         
@@ -190,11 +179,15 @@ function Main({envioPedido,setEnvioPedido,}) {
         <img className={openDesc3 === true && butSelect3 === true? 'tipoacai' : 'tipoacaiActivo'} src={imgAcaideira} alt="imagens dos acais" />
         </section>
         <div className='precosDms'>
-        <p className='valor'>R$12,00</p>
+        <p className='valor'>R$16,00</p>
         <div className='maisMenos'>
+        <div className='containerMa'>
         <div onClick={() => setQAçaideira(qAçaideira-1)} className={qAçaideira <= 0 ? 'menosDesativo' : 'menos'}>-</div>
+        </div>
         <button onClick={() => setButSelect3(!butSelect3)} className={butSelect3 === true ? 'butSelect' : 'butSelectActivo'}>{butSelect3 === true ? 'SELECIONAR' : 'SELECIONADO'}</button>
+        <div className='containerMe'>
         <div onClick={() => setQAçaideira(qAçaideira+1)} className={butSelect3 === true ? 'maisDesativo' : 'mais'}>+</div>
+        </div>
         </div>
         </div>
 
@@ -214,11 +207,15 @@ function Main({envioPedido,setEnvioPedido,}) {
         <img className={openDesc4 === true && butSelect4 === true? 'tipoacai' : 'tipoacaiActivo'} src={imgBlack} alt="imagens dos acais" />
         </section>
         <div className='precosDms'>
-        <p className='valor'>R$12,00</p>
+        <p className='valor'>R$15,00</p>
         <div className='maisMenos'>
+        <div className='containerMa'>
         <div onClick={() => setQBlack(qBlack-1)} className={qBlack <= 0 ? 'menosDesativo' : 'menos'}>-</div>
+        </div>
         <button onClick={() => setButSelect4(!butSelect4)} className={butSelect4 === true ? 'butSelect' : 'butSelectActivo'}>{butSelect4 === true ? 'SELECIONAR' : 'SELECIONADO'}</button>
+        <div className='containerMe'>
         <div onClick={() => setQBlack(qBlack+1)} className={butSelect4 === true ? 'maisDesativo' : 'mais'}>+</div>
+        </div>
         </div>
         </div>
       </main>

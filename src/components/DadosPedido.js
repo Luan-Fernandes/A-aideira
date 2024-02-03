@@ -20,15 +20,14 @@ function DadosPedido({envioPedido,setEnvioPedido}) {
 
   const history = useNavigate();
    const [step,setStep] = useState();
-  const [nome,setNome] = useState("")
+  const [nome,setNome] = useState()
   const [endereco,setEndereco] = useState("")
   const [celular,setCelular] = useState("")
   const [complemento,setComplemento] = useState("")
   const [observacao,setObservacao] = useState("--")
-  const pedidoMsg = ("**Pedidos Açaideira**\n\n"+"Bem vindo" +" "+ "*" + nome + "*\n\n" +envioPedido+ "\n\n" + "*Endereço*\n" +endereco+"\n\n"+"*Complemento*\n"+complemento+"\n\n"+ "*Forma de Pagamento:*"+step+"\n\n"+ "*Observação*\n"+observacao + "\n\n" + "*CASO O PAGAMENTO FOR VIA PIX, POR FAVOR, ENVIE O COMPROVANTE*" +"\n\n"+ "*OBRIGADO PELA PREFERÊNCIA*") 
+  const pedidoMsg = ("**Pedidos Açaideira**\n\n"+"Bem vindo(a)" +" "+ "*" + nome + "*"+" "+"!\n\n" +envioPedido+ "\n\n" + "*Endereço:*\n" +endereco+"\n\n"+"*Referência:*\n"+complemento+"\n\n"+ "*Forma de Pagamento:*"+" "+step+"\n\n"+ "*Observação:*\n"+observacao + "\n\n" + "*CASO O PAGAMENTO FOR VIA PIX, POR FAVOR, ENVIE O COMPROVANTE*" +"\n\n"+ "*OBRIGADO PELA PREFERÊNCIA*") 
   const CelularEdit = "5581"+celular;
-  console.log(pedidoMsg)
-
+  
 
   async function PedidoCompleto(){
 
@@ -58,16 +57,16 @@ console.log(data)
       <div className='ContainerPai'>
         <form className='containerFilho'>
              <label> *Nome:</label>
-             <input placeholder='Fabio Santos' type="text" onChange={(e) => setNome(e.target.value)}/>
+             <input placeholder='Exp.:Fabio Santos' type="text" onChange={(e) => setNome(e.target.value)}/>
             
             <label> *Endereço:</label>
-            <input placeholder='Bairro, Rua e Número' type="text" onChange={(e) => setEndereco(e.target.value)}/>
+            <input placeholder='Exp.:Bairro, Rua e Número' type="text" onChange={(e) => setEndereco(e.target.value)}/>
 
             <label> *Celular:</label>
-            <input placeholder='999999999' type="number" onChange={(e) => setCelular(e.target.value)}/>
+            <input placeholder='Exp.:999999999' type="number" onChange={(e) => setCelular(e.target.value)}/>
 
             <label> *Referência:</label>
-            <input placeholder='Próximo ao Mercadinho'  type="text" onChange={(e) => setComplemento(e.target.value)}/>
+            <input placeholder='Exp.:Próximo ao Mercadinho'  type="text" onChange={(e) => setComplemento(e.target.value)}/>
             
             <div className='pagamento'>
             <label>*Forma de Pagamento:</label>

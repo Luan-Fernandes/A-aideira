@@ -6,6 +6,7 @@ import DadosPedido from './components/DadosPedido';
 import Personalizados from './components/Personalizados';
 import NavBar from './components/NavBar';
 import Footer from './components/Footer';
+import PedidoConfirmado from './components/PedidoConfirmado'
 
 /*Hooks*/
 import { useState } from 'react'
@@ -23,6 +24,7 @@ function App() {
           <Route exact path="/" element={<Main envioPedido={envioPedido} setEnvioPedido={setEnvioPedido}/>} />
           <Route exact path="/personalizados" element={<Personalizados/>} />
           <Route exact path="/dadospedido" element={<DadosPedido envioPedido={envioPedido} setEnvioPedido={setEnvioPedido}/>} />
+          <Route exact path="/pedidoconfirmado" element={<PedidoConfirmado/>} />
 
           </Routes>
           <NavBar></NavBar>

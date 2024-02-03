@@ -14,6 +14,46 @@ main{
     justify-content: center;
     align-items: center;
     font-size: 14px;
+    animation: container 1s;
+  }
+  @keyframes container {
+    0% {
+      transform: translateY(48px);
+      animation-timing-function: ease-in;
+      opacity: 1;
+    }
+    24% {
+      opacity: 1;
+    }
+    40% {
+      transform: translateY(26px);
+      animation-timing-function: ease-in;
+    }
+    65% {
+      transform: translateY(13px);
+      animation-timing-function: ease-in;
+    }
+    82% {
+      transform: translateY(6.5px);
+      animation-timing-function: ease-in;
+    }
+    93% {
+      transform: translateY(4px);
+      animation-timing-function: ease-in;
+    }
+    25%,
+    55%,
+    75%,
+    87%,
+    98% {
+      transform: translateY(0px);
+      animation-timing-function: ease-out;
+    }
+    100% {
+      transform: translateY(0px);
+      animation-timing-function: ease-out;
+      opacity: 1;
+    }
   }
   
   .tipoacai,.desacai{
@@ -93,7 +133,6 @@ main{
     display: flex;
     width: 210px;
     justify-content: center;
-    gap: 10px;
  
   }
   .mais, .menos {
@@ -105,7 +144,13 @@ main{
     align-items: center;
     font-size: 30px;
   }
- 
+ .containerMa,.containerMe{
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+ }
 
   .mais{
     background-color: rgba(49, 136, 49, 0.699);
@@ -157,7 +202,49 @@ main{
     transition: .5s;
     color: white;
     box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.452);
+    animation: container 1s;
   }  
+
+@keyframes container {
+    0% {
+      transform: translateX(48px);
+      animation-timing-function: ease-in;
+      opacity: 1;
+    }
+    24% {
+      opacity: 1;
+    }
+    40% {
+      transform: translateX(26px);
+      animation-timing-function: ease-in;
+    }
+    65% {
+      transform: translateX(13px);
+      animation-timing-function: ease-in;
+    }
+    82% {
+      transform: translateX(6.5px);
+      animation-timing-function: ease-in;
+    }
+    93% {
+      transform: translateX(4px);
+      animation-timing-function: ease-in;
+    }
+    25%,
+    55%,
+    75%,
+    87%,
+    98% {
+      transform: translateX(0px);
+      animation-timing-function: ease-out;
+    }
+    100% {
+      transform: translateX(0px);
+      animation-timing-function: ease-out;
+      opacity: 1;
+    }
+  }
+
   .containervaloresActivo h1{
     font-size: 20px;
   }

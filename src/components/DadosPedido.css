@@ -1,17 +1,57 @@
 .ContainerPai{
-    height: 100vh;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: 100px;
+    margin-top: 19vh;
 }
 form{
-    height: 100vh;
     display: flex;
     flex-direction: column;
     width: 80%;
     position: relative;
+    justify-content: center;
+    animation: container 1s;
 }
+@keyframes container {
+    0% {
+      transform: translateY(-48px);
+      animation-timing-function: ease-in;
+      opacity: 1;
+    }
+    24% {
+      opacity: 1;
+    }
+    40% {
+      transform: translateY(-26px);
+      animation-timing-function: ease-in;
+    }
+    65% {
+      transform: translateY(-13px);
+      animation-timing-function: ease-in;
+    }
+    82% {
+      transform: translateY(-6.5px);
+      animation-timing-function: ease-in;
+    }
+    93% {
+      transform: translateY(-4px);
+      animation-timing-function: ease-in;
+    }
+    25%,
+    55%,
+    75%,
+    87%,
+    98% {
+      transform: translateY(0px);
+      animation-timing-function: ease-out;
+    }
+    100% {
+      transform: translateY(0px);
+      animation-timing-function: ease-out;
+      opacity: 1;
+    }
+  }
 form input, form textarea{
     margin-bottom: 15px;
     border-radius: 30px;
@@ -25,6 +65,14 @@ form label{
 
 .ButtonEnviar{
     border-radius: 20px;
+    background-color: transparent;
+    color: white;
+    border: 1px solid;
+    font-family: 'Lemon', serif;
+  }
+  .ButtonEnviarD{
+    border-radius: 20px;
+    width: 300px;
     background-color: transparent;
     color: white;
     border: 1px solid;
