@@ -202,7 +202,7 @@ main{
     transition: .5s;
     color: white;
     box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.452);
-    animation: containerV 1s;
+  
   }  
 
 @keyframes containerV {
@@ -264,4 +264,23 @@ main{
     color: white;
     border: 1px solid;
     font-family: 'Lemon', serif;
+  }
+  .ConfirmeNumero{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .butNumero{
+    border: 0;
+    margin-left: 4px;
+    color: white;
+    height: 40px;
+    background-color: rgb(228, 72, 72);
+  }
+  .butconfirmado{
+    border: 0;
+    margin-left: 4px;
+    color: white;
+    height: 40px;
+    background-color: rgb(30, 116, 4);
   }

@@ -9,17 +9,19 @@ import { FaMoneyBillWave } from "react-icons/fa";
 function DadosPedido({envioPedido,setEnvioPedido}) {
 
   const enviarMsg = () => {
-    if(nome === "" || endereco === "" || celular === "" || complemento === ""){
-      alert("Preencha os campos obrigatorios marcados com *.")
+    if(nome === "" || endereco === "" || celular === "" || complemento === "" || confirmNumero === false){
+      alert("Preencha os campos obrigatorios, ou Confirme o Numero")
     }else{
       history("/pedidoconfirmado")
       return PedidoCompleto()
     }
     
   }
+  
 
   const history = useNavigate();
    const [step,setStep] = useState();
+   const [confirmNumero,setConfirmeNumero] = useState(false)
   const [nome,setNome] = useState()
   const [endereco,setEndereco] = useState("")
   const [celular,setCelular] = useState("")
@@ -46,7 +48,6 @@ function DadosPedido({envioPedido,setEnvioPedido}) {
     phone: [CelularEdit]
   })
 })
-
 const data = await response.json()
 
 console.log(data)
@@ -62,8 +63,11 @@ console.log(data)
             <label> *Endereço:</label>
             <input placeholder='Exp.:Bairro, Rua e Número' type="text" onChange={(e) => setEndereco(e.target.value)}/>
 
-            <label> *Celular:</label>
+            <label> *WhatsApp:</label>
+            <div className='ConfirmeNumero'>
             <input placeholder='Exp.:999999999' type="number" onChange={(e) => setCelular(e.target.value)}/>
+            <input onClick={() => setConfirmeNumero(!confirmNumero)} className={confirmNumero === false ? "butNumero" : "butconfirmado"} type="button" value={confirmNumero === false ? "Confirme Número" : "Número Confirmado"} />
+            </div>
 
             <label> *Referência:</label>
             <input placeholder='Exp.:Próximo ao Mercadinho'  type="text" onChange={(e) => setComplemento(e.target.value)}/>

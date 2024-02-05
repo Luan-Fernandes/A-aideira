@@ -23,8 +23,8 @@ function NavBar() {
  
       <header>
         <img onClick={() => history("/")} className='logo' src={logo} alt="logo" />
-        <p onClick={() => [Navigation(),setContadorNav(!ContadorNav)]} className='perssonalisar'>{ContadorNav === true ? 'Personalizar' : 'Dicas de Açaí'}
-        </p>
+        {/*<p onClick={() => [Navigation(),setContadorNav(!ContadorNav)]} className='perssonalisar'>{ContadorNav === true ? 'Personalizar' : 'Dicas de Açaí'}</p>*/}
+        
       </header> 
     </div>
   );
