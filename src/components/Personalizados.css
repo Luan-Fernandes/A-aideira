@@ -1,0 +1,171 @@
+.personalizados{
+    width: 100%;
+    font-size: 14px;
+    color: white;
+    margin-top: 90px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+}
+.tamanhosacai{
+    width: 95%;
+    display: flex;
+    align-items: center;
+    margin-top:50px;
+    gap: 10px;
+    justify-content: center;
+    padding: 0;
+}
+.tamanhosacai li{
+    list-style: none;
+    font-size: 18px;
+    width: 70px;
+}
+.acai300, .acai500, .acai700, .acaigg{
+ border-top:4px solid transparent;
+ border-radius: 10px;
+ transition: 1s;
+}
+.acai300activo, .acai500activo, .acai700activo, .acaiggactivo{
+    border-top:4px solid #9c4abe;
+    border-radius: 10px;
+    transition: 1s;
+}
+
+.QTScompltPai{
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+width: 70px;
+}
+
+.QTScomple{
+    width:100%;
+    height: 90px;
+    border-bottom-right-radius: 30px;
+    border-bottom-left-radius: 30px;
+    line-height: .5;
+    padding-top:5px ;
+    font-size: 12px;
+    background-color: white;
+    color: #9c4abe;
+}
+.complementos{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0;
+    width: 90%;
+    margin-bottom: 30px;
+}
+.formComplementos{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.formComplementos label{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+}
+
+.Container{
+    display: flex;
+    gap: 10px;
+    border: 1px solid;
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom:10px ;
+}
+.containerSeletor{
+    width: 30px;
+    height: 30px;
+}
+.SeletorCom{
+    border: 2px solid white;
+    width: 25px;
+    height: 25px;
+    border-radius: 8px;
+    transition: .5s;
+}
+.SeletorComSelect{
+    border: 1px solid #7900ac;
+    border-radius: 8px;
+    width: 25px;
+    height: 25px;
+    background-color: #7900ac;
+    transition: .5s;
+}
+.limitadorComple{
+    display:  none;
+}
+
+.ContainerMMPai{
+    width: 90px;
+}
+.MMfilhoDesable{
+    display: none;
+}
+.ContainerMMFilho{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.ContainerPaiMenos{
+    width: 33%;
+}
+.ContainerFilhoMenos{
+    width: 100%;
+    height: 45px;
+    border-radius:10px ;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 25px;
+    color: red;
+}
+.ContainerFilhoMenosLimite{
+    display: none;
+}
+.CMais{
+    width: 33%;
+    height: 45px;
+    display: flex;
+    border-radius:10px ;
+    align-items: center;
+    justify-content: center;
+    font-size: 25px;
+    color: green;
+}
+
+.CmaisFilhos{
+    width: 33%;
+    height: 45px;
+    display: flex;
+    border-radius:10px ;
+    align-items: center;
+    justify-content: center;
+    font-size: 25px;
+    color: green;
+}
+
+.CmaisFilhosDesact{
+    display: none;
+}
+
+.containervalorAd{
+    line-height: .5;
+    text-align: center;
+}
+.valorAD{
+    font-size: 11px;
+    color: rgb(114, 114, 114);
+}
