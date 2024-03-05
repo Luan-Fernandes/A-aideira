@@ -169,3 +169,48 @@ width: 70px;
     font-size: 11px;
     color: rgb(114, 114, 114);
 }
+.containervaloresPO{
+    width: 100%;
+    height:65px;
+    background-color: #7900ac;
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: fixed;
+    top: 10vh;
+    margin-top: 78vh;
+    transform: translatex(120%);
+    transition: 1s;
+  }
+  .containervaloresActivoPO{
+    width: 100%;
+    height:65px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: fixed;
+    top:10vh;
+    background-color: #7900ac;
+    margin-top: 78vh;
+    transition: .5s;
+    color: white;
+    box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.452);
+  } 
+
+  .numWha{
+    border: 1px solid;
+    border-radius: 10px;
+    background-color: transparent;
+    color: white;
+    padding: 5px;
+    text-align: center;
+  }
+  .inPNumb{
+    line-height: 0;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    justify-content: flex-start;
+  }

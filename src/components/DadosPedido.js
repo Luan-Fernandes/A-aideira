@@ -6,7 +6,7 @@ import { FaPix } from "react-icons/fa6";
 import { FaCcMastercard } from "react-icons/fa";
 import { FaMoneyBillWave } from "react-icons/fa";
 
-function DadosPedido({envioPedido,setEnvioPedido}) {
+function DadosPedido({envioPedido,envioMsgPers,stepEnvio}) {
 
   const enviarMsg = () => {
     if(nome === "" || endereco === "" || celular === "" || complemento === "" || confirmNumero === false){
@@ -17,7 +17,7 @@ function DadosPedido({envioPedido,setEnvioPedido}) {
     }
     
   }
-  
+  console.log(envioMsgPers)
 
   const history = useNavigate();
    const [step,setStep] = useState();
@@ -28,10 +28,15 @@ function DadosPedido({envioPedido,setEnvioPedido}) {
   const [complemento,setComplemento] = useState("")
   const [observacao,setObservacao] = useState("--")
   const pedidoMsg = ("**Pedidos Açaideira**\n\n"+"Bem vindo(a)" +" "+ "*" + nome + "*"+" "+"!\n\n" +envioPedido+ "\n\n" + "*Endereço:*\n" +endereco+"\n\n"+"*Referência:*\n"+complemento+"\n\n"+ "*Forma de Pagamento:*"+" "+step+"\n\n"+ "*Observação:*\n"+observacao + "\n\n" + "*CASO O PAGAMENTO FOR VIA PIX, POR FAVOR, ENVIE O COMPROVANTE*" +"\n\n"+ "*OBRIGADO PELA PREFERÊNCIA*") 
+
+  const pedidoMsgPers = ("**Pedidos Açaideira**\n\n"+"Bem vindo(a)" +" "+ "*" + nome + "*"+" "+"!\n\n" +envioMsgPers+ "\n\n" + "*Endereço:*\n" +endereco+"\n\n"+"*Referência:*\n"+complemento+"\n\n"+ "*Forma de Pagamento:*"+" "+step+"\n\n"+ "*Observação:*\n"+observacao + "\n\n" + "*CASO O PAGAMENTO FOR VIA PIX, POR FAVOR, ENVIE O COMPROVANTE*" +"\n\n"+ "*OBRIGADO PELA PREFERÊNCIA*") 
+
   const CelularEdit = "5581"+celular;
   
 
   async function PedidoCompleto(){
+
+    if(stepEnvio === 1){
 
     const GZAPPY_URL = "https://api.gzappy.com/v1/message/send-message"
 
@@ -39,11 +44,11 @@ function DadosPedido({envioPedido,setEnvioPedido}) {
   method: 'POST',
   headers: {
     'Content-Type': 'application/json',
-    'user_token_id': '9ce7cdb5-f347-4260-b14c-34844e320b75'
+    'user_token_id': 'd05b1f8a-2ffd-4189-8987-ae80745bfc29'
   },
   body: JSON.stringify({
-    instance_id: 'GTTPCDN0YT7UP2PZW3QFPS27',
-    instance_token: '7d13ed94-c404-45a7-bd20-3f682c381901',
+    instance_id: 'MR3D1SNFR8KXISR3AUP8FVAK',
+    instance_token: 'b0df3c44-8028-4001-8550-7d14229d56d1',
     message: [pedidoMsg],
     phone: [CelularEdit]
   })
@@ -54,6 +59,31 @@ console.log(data)
 // { msg: 'Messages sent' }
 
   }
+  else{
+    const GZAPPY_URL = "https://api.gzappy.com/v1/message/send-message"
+
+    const response = await fetch(GZAPPY_URL, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'user_token_id': 'd05b1f8a-2ffd-4189-8987-ae80745bfc29'
+    },
+    body: JSON.stringify({
+      instance_id: 'MR3D1SNFR8KXISR3AUP8FVAK',
+      instance_token: 'b0df3c44-8028-4001-8550-7d14229d56d1',
+      message: [pedidoMsgPers],
+      phone: [CelularEdit]
+    })
+  })
+  const data = await response.json()
+  
+  console.log(data)
+  // { msg: 'Messages sent' }
+  
+    }
+  }
+  
+  
     return (
       <div className='ContainerPai'>
         <form className='containerFilho'>

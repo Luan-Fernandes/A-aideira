@@ -7,7 +7,7 @@ import imgLimocity from "./img/image0.jpeg";
 import imgAcaideira from "./img/image2.png";
 import imgBlack from "./img/image3.png";
 import imgKids from "./img/image4.png";
-function Main({envioPedido,setEnvioPedido,}) {
+function Main({envioPedido,setEnvioPedido,setStepEnvio}) {
   const history = useNavigate();
 
   const [openDesc1, setOpenDesc1] = useState(true);
@@ -223,7 +223,7 @@ function Main({envioPedido,setEnvioPedido,}) {
         <div className={containervalores()}>
           <h1>Valor:</h1>
           <h2>R${valor},00</h2>
-          <button onClick={() => valor === 0 ? alert("Adicione pelo menos um Açai!") : history("/dadospedido")} className='butContinuar'>CONTINUAR</button>
+          <button onClick={() => valor === 0 ? alert("Adicione pelo menos um Açai!") : [history("/dadospedido"),setStepEnvio(1)]} className='butContinuar'>CONTINUAR</button>
         </div>
       </section>
     </div>

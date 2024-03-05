@@ -12,7 +12,10 @@ import PedidoConfirmado from './components/PedidoConfirmado'
 import { useState } from 'react'
 function App() {
   const [envioPedido,setEnvioPedido] = useState("")
-  localStorage.setItem("pedido",envioPedido);
+  const [envioMsgPers, setEnvioMsgPers] = useState("")
+  const [stepEnvio, setStepEnvio] = useState()
+
+  
   return (
     <div className="App">
       <Router>
@@ -21,9 +24,9 @@ function App() {
 
           <Routes>
         
-          <Route exact path="/" element={<Main envioPedido={envioPedido} setEnvioPedido={setEnvioPedido}/>} />
-          <Route exact path="/personalizados" element={<Personalizados/>} />
-          <Route exact path="/dadospedido" element={<DadosPedido envioPedido={envioPedido} setEnvioPedido={setEnvioPedido}/>} />
+          <Route exact path="/" element={<Main envioPedido={envioPedido} setEnvioPedido={setEnvioPedido} setStepEnvio={setStepEnvio} />} />
+          <Route exact path="/personalizados" element={<Personalizados envioMsgPers={envioMsgPers} setStepEnvio={setStepEnvio} setEnvioMsgPers={setEnvioMsgPers}/>} />
+          <Route exact path="/dadospedido" element={<DadosPedido stepEnvio={stepEnvio} envioPedido={envioPedido} envioMsgPers={envioMsgPers} setEnvioPedido={setEnvioPedido}/>} />
           <Route exact path="/pedidoconfirmado" element={<PedidoConfirmado envioPedido={envioPedido}/>} />
 
           </Routes>
