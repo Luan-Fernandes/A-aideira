@@ -149,7 +149,7 @@ function Personalizados({envioMsgPers,setEnvioMsgPers,setStepEnvio}) {
 
   const [pedirOutroA, setPedirOutroA] = useState(false);
   const [numWhats, setNumWhats] = useState('');
-  const numeroEnvio = '5581' + numWhats;
+  const numeroEnvio = '55' + numWhats;
   console.log(numeroEnvio)
 
   /*Funcoes complementos*/
@@ -714,7 +714,7 @@ function Personalizados({envioMsgPers,setEnvioMsgPers,setStepEnvio}) {
   }
 
   const pedirOutro = async () => {
-    if (numWhats === '' || numWhats.length != 9) {
+    if (numWhats === '' || numWhats.length != 11) {
       alert("Digite Numero do seu WhatsApp!")
     }
     else if (contadorComplementos === 0 || contadorFrutas === 0 || contadorCaldas === 0) {
@@ -1383,7 +1383,7 @@ function Personalizados({envioMsgPers,setEnvioMsgPers,setStepEnvio}) {
       <section className='valores'>
         <div className={pedirOutroA === true ? "containervaloresActivoPO" : "containervaloresPO"}>
           <p>WhatsApp:</p>
-          <input className='numWha' type="number" onChange={(e) => setNumWhats(e.target.value)} />
+          <input className='numWha' placeholder='Exp.: 81999294899' type="number" onChange={(e) => setNumWhats(e.target.value)} />
           <button onClick={pedirOutro} className='butContinuar'>ENVIAR</button>
         </div>
       </section>

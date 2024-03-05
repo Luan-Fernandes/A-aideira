@@ -27,11 +27,11 @@ function DadosPedido({envioPedido,envioMsgPers,stepEnvio}) {
   const [celular,setCelular] = useState("")
   const [complemento,setComplemento] = useState("")
   const [observacao,setObservacao] = useState("--")
-  const pedidoMsg = ("**Pedidos Açaideira**\n\n"+"Bem vindo(a)" +" "+ "*" + nome + "*"+" "+"!\n\n" +envioPedido+ "\n\n" + "*Endereço:*\n" +endereco+"\n\n"+"*Referência:*\n"+complemento+"\n\n"+ "*Forma de Pagamento:*"+" "+step+"\n\n"+ "*Observação:*\n"+observacao + "\n\n" + "*CASO O PAGAMENTO FOR VIA PIX, POR FAVOR, ENVIE O COMPROVANTE*" +"\n\n"+ "*OBRIGADO PELA PREFERÊNCIA*") 
+  const pedidoMsg = ("**Pedidos Açaideira**\n\n"+"Bem vindo(a)" +" "+ "*" + nome + "*"+" "+"!\n\n" +envioPedido+ "\n\n" + "*Endereço:*\n" +endereco+"\n\n"+"*Referência:*\n"+complemento+"\n\n"+ "*Forma de Pagamento:*"+" "+step+"\n\n"+ "*Observação:*\n"+observacao + "\n\n" + "*CASO O PAGAMENTO FOR VIA PIX, POR FAVOR, ENVIE O COMPROVANTE.*" +"\n\n"+ "*OBRIGADO PELA PREFERÊNCIA.*") 
 
-  const pedidoMsgPers = ("**Pedidos Açaideira**\n\n"+"Bem vindo(a)" +" "+ "*" + nome + "*"+" "+"!\n\n" +envioMsgPers+ "\n\n" + "*Endereço:*\n" +endereco+"\n\n"+"*Referência:*\n"+complemento+"\n\n"+ "*Forma de Pagamento:*"+" "+step+"\n\n"+ "*Observação:*\n"+observacao + "\n\n" + "*CASO O PAGAMENTO FOR VIA PIX, POR FAVOR, ENVIE O COMPROVANTE*" +"\n\n"+ "*OBRIGADO PELA PREFERÊNCIA*") 
+  const pedidoMsgPers = ("**Pedidos Açaideira**\n\n"+"Bem vindo(a)" +" "+ "*" + nome + "*"+" "+"!\n\n" +envioMsgPers+ "\n\n" + "*Endereço:*\n" +endereco+"\n\n"+"*Referência:*\n"+complemento+"\n\n"+ "*Forma de Pagamento:*"+" "+step+"\n\n"+ "*Observação:*\n"+observacao + "\n\n" + "*CASO O PAGAMENTO FOR VIA PIX, POR FAVOR, ENVIE O COMPROVANTE.*" +"\n\n"+ "*OBRIGADO PELA PREFERÊNCIA.*") 
 
-  const CelularEdit = "5581"+celular;
+  const CelularEdit = "55"+celular;
   
 
   async function PedidoCompleto(){
@@ -44,7 +44,7 @@ function DadosPedido({envioPedido,envioMsgPers,stepEnvio}) {
   method: 'POST',
   headers: {
     'Content-Type': 'application/json',
-    'user_token_id': 'd05b1f8a-2ffd-4189-8987-ae80745bfc29'
+    'user_token_id': 'b0df3c44-8028-4001-8550-7d14229d56d1'
   },
   body: JSON.stringify({
     instance_id: 'MR3D1SNFR8KXISR3AUP8FVAK',
@@ -66,7 +66,7 @@ console.log(data)
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
-      'user_token_id': 'd05b1f8a-2ffd-4189-8987-ae80745bfc29'
+      'user_token_id': 'b0df3c44-8028-4001-8550-7d14229d56d1'
     },
     body: JSON.stringify({
       instance_id: 'MR3D1SNFR8KXISR3AUP8FVAK',
@@ -95,7 +95,7 @@ console.log(data)
 
             <label> *WhatsApp:</label>
             <div className='ConfirmeNumero'>
-            <input placeholder='Exp.:999999999' type="number" onChange={(e) => setCelular(e.target.value)}/>
+            <input placeholder='Exp.:81999294899' type="number" onChange={(e) => setCelular(e.target.value)}/>
             <input onClick={() => setConfirmeNumero(!confirmNumero)} className={confirmNumero === false ? "butNumero" : "butconfirmado"} type="button" value={confirmNumero === false ? "Confirme Número" : "Número Confirmado"} />
             </div>
 
