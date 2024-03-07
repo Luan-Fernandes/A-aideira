@@ -22,10 +22,26 @@ function DadosPedido({envioPedido,envioMsgPers,stepEnvio}) {
   const history = useNavigate();
   const [step,setStep] = useState();
   const [confirmNumero,setConfirmeNumero] = useState(false)
-  const [nome,setNome] = useState()
-  const [endereco,setEndereco] = useState("")
-  const [celular,setCelular] = useState("")
-  const [complemento,setComplemento] = useState("")
+
+  const [nome,setNome] = useState(() => {
+    const nomeSalvo = localStorage.getItem('nome');
+    return nomeSalvo ? nomeSalvo : 'defalut'
+  })
+  const [endereco,setEndereco] = useState(() => {
+    const enderecoSalvo = localStorage.getItem('endereco');
+    return enderecoSalvo ? enderecoSalvo : 'defalut'
+  })
+  const [celular,setCelular] = useState(() => {
+    const celularSalvo = localStorage.getItem('celular');
+    return celularSalvo ? celularSalvo : 'defalut'
+  })
+  const [complemento,setComplemento] = useState(() => {
+    const complementoSalvo = localStorage.getItem('complemento');
+    return complementoSalvo ? complementoSalvo : 'defalut'
+  })
+
+  const [butDados, setButDados] = useState(false)
+
   const [observacao,setObservacao] = useState("--")
   const pedidoMsg = ("**Pedidos Açaideira**\n\n"+"Bem vindo(a)" +" "+ "*" + nome + "*"+" "+"!\n\n" +envioPedido+ "\n\n" + "*Endereço:*\n" +endereco+"\n\n"+"*Referência:*\n"+complemento+"\n\n"+ "*Forma de Pagamento:*"+" "+step+"\n\n"+ "*Observação:*\n"+observacao + "\n\n" + "*CASO O PAGAMENTO FOR VIA PIX, POR FAVOR, ENVIE O COMPROVANTE.*" +"\n\n"+ "*OBRIGADO PELA PREFERÊNCIA.*") 
 
@@ -33,16 +49,23 @@ function DadosPedido({envioPedido,envioMsgPers,stepEnvio}) {
 
   const CelularEdit = "55"+celular;
   
-  useEffect(() => {
-    const nomeSalvo = localStorage.getItem("nome")
-    if(nomeSalvo){
-      setNome(nomeSalvo)
-    }
-  },[])
+  
 
   useEffect(() => {
-    localStorage.setItem("nome",nome)
+    localStorage.setItem('nome',nome);
   },[nome])
+
+  useEffect(() => {
+    localStorage.setItem('endereco',endereco);
+  },[endereco])
+
+  useEffect(() => {
+    localStorage.setItem('celular',celular);
+  },[celular])
+
+  useEffect(() => {
+    localStorage.setItem('complemento',complemento);
+  },[complemento])
 
   async function PedidoCompleto(){
 
@@ -98,19 +121,19 @@ console.log(data)
       <div className='ContainerPai'>
         <form className='containerFilho'>
              <label> *Nome:</label>
-             <input placeholder='Exp.:Fabio Santos' type="text" onChange={(e) => setNome(e.target.value)}/>
+             <input placeholder='Exp.:Fabio Santos' value={butDados === true ? nome : undefined} type="text" onChange={(e) => setNome(e.target.value)}/>
             
             <label> *Endereço:</label>
-            <input placeholder='Exp.:Bairro, Rua e Número' type="text" onChange={(e) => setEndereco(e.target.value)}/>
+            <input placeholder='Exp.:Bairro, Rua e Número' value={butDados === true ? endereco : undefined} type="text" onChange={(e) => setEndereco(e.target.value)}/>
 
             <label> *WhatsApp:</label>
             <div className='ConfirmeNumero'>
-            <input placeholder='Exp.:81999294899' type="number" onChange={(e) => setCelular(e.target.value)}/>
+            <input placeholder='Exp.:81999294899' type="number" value={butDados === true ? celular : undefined} onChange={(e) => setCelular(e.target.value)}/>
             <input onClick={() => setConfirmeNumero(!confirmNumero)} className={confirmNumero === false ? "butNumero" : "butconfirmado"} type="button" value={confirmNumero === false ? "Confirme Número" : "Número Confirmado"} />
             </div>
 
             <label> *Referência:</label>
-            <input placeholder='Exp.:Próximo ao Mercadinho'  type="text" onChange={(e) => setComplemento(e.target.value)}/>
+            <input placeholder='Exp.:Próximo ao Mercadinho' value={butDados === true ? complemento : undefined} type="text" onChange={(e) => setComplemento(e.target.value)}/>
             
             <div className='pagamento'>
             <label>*Forma de Pagamento:</label>
@@ -125,8 +148,15 @@ console.log(data)
             <input type="text" onChange={(e) => setObservacao(e.target.value)}/>
             
             <input onClick={enviarMsg} type="button" className='ButtonEnviar' value="Enviar Pedido"/>
-            <div><p>{localStorage.getItem("nome",nome)}</p></div>
         </form>
+        <div className='DadosAnteriores'>
+          <h1>Dados Anteriores!</h1>
+            <p>*Nome: {nome}.</p>
+            <p>*Endereço: {endereco}.</p>
+            <p>*WhatsApp: {celular}.</p>
+            <p>*Referência: {complemento}.</p>
+            <button onClick={() => setButDados(true)}>Usar Dados Anteriores.</button>
+        </div>
       </div>
     );
   }
