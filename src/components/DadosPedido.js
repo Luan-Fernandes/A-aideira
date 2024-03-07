@@ -20,8 +20,8 @@ function DadosPedido({envioPedido,envioMsgPers,stepEnvio}) {
   console.log(envioMsgPers)
 
   const history = useNavigate();
-   const [step,setStep] = useState();
-   const [confirmNumero,setConfirmeNumero] = useState(false)
+  const [step,setStep] = useState();
+  const [confirmNumero,setConfirmeNumero] = useState(false)
   const [nome,setNome] = useState()
   const [endereco,setEndereco] = useState("")
   const [celular,setCelular] = useState("")
@@ -33,6 +33,16 @@ function DadosPedido({envioPedido,envioMsgPers,stepEnvio}) {
 
   const CelularEdit = "55"+celular;
   
+  useEffect(() => {
+    const nomeSalvo = localStorage.getItem("nome")
+    if(nomeSalvo){
+      setNome(nomeSalvo)
+    }
+  },[])
+
+  useEffect(() => {
+    localStorage.setItem("nome",nome)
+  },[nome])
 
   async function PedidoCompleto(){
 
@@ -44,7 +54,7 @@ function DadosPedido({envioPedido,envioMsgPers,stepEnvio}) {
   method: 'POST',
   headers: {
     'Content-Type': 'application/json',
-    'user_token_id': 'b0df3c44-8028-4001-8550-7d14229d56d1'
+    'user_token_id': 'd05b1f8a-2ffd-4189-8987-ae80745bfc29'
   },
   body: JSON.stringify({
     instance_id: 'MR3D1SNFR8KXISR3AUP8FVAK',
@@ -66,7 +76,7 @@ console.log(data)
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
-      'user_token_id': 'b0df3c44-8028-4001-8550-7d14229d56d1'
+      'user_token_id': 'd05b1f8a-2ffd-4189-8987-ae80745bfc29'
     },
     body: JSON.stringify({
       instance_id: 'MR3D1SNFR8KXISR3AUP8FVAK',
@@ -115,6 +125,7 @@ console.log(data)
             <input type="text" onChange={(e) => setObservacao(e.target.value)}/>
             
             <input onClick={enviarMsg} type="button" className='ButtonEnviar' value="Enviar Pedido"/>
+            <div><p>{localStorage.getItem("nome",nome)}</p></div>
         </form>
       </div>
     );
