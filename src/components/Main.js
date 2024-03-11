@@ -7,7 +7,7 @@ import imgLimocity from "./img/image0.jpeg";
 import imgAcaideira from "./img/image2.png";
 import imgBlack from "./img/image3.png";
 import imgKids from "./img/image4.png";
-function Main({envioPedido,setEnvioPedido,setStepEnvio}) {
+function Main({envioPedido,setEnvioPedido,setStepEnvio,nome}) {
   const history = useNavigate();
 
   const [openDesc1, setOpenDesc1] = useState(true);
@@ -41,7 +41,7 @@ function Main({envioPedido,setEnvioPedido,setStepEnvio}) {
   const [opAcai,setOpAcai] = useState('')
   
   
-
+  
   useEffect(() => {
     /*soma acai kids*/
     if(butSelect1 === true || qKids === 0){
@@ -98,6 +98,19 @@ function Main({envioPedido,setEnvioPedido,setStepEnvio}) {
       return ('containervalores')
     }
     else return ('containervaloresActivo')
+  }
+
+  const continuarBut = () => {
+    if(valor === 0){
+      alert("Adicione pelo menos um Açai!")
+    }
+    else if(valor != 0 && nome === "defalut"){
+      history("/dadospedido")
+    }
+    else{
+      history("/dadossalvos")
+    }
+  
   }
   return (
     <div className="App">
@@ -223,7 +236,7 @@ function Main({envioPedido,setEnvioPedido,setStepEnvio}) {
         <div className={containervalores()}>
           <h1>Valor:</h1>
           <h2>R${valor},00</h2>
-          <button onClick={() => valor === 0 ? alert("Adicione pelo menos um Açai!") : [history("/dadospedido"),setStepEnvio(1)]} className='butContinuar'>CONTINUAR</button>
+          <button onClick={continuarBut} className='butContinuar'>CONTINUAR</button>
         </div>
       </section>
     </div>

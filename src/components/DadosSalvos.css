@@ -1,0 +1,30 @@
+.dadosA{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.DadosAnteriores{
+    width: 90%;
+    border: 1px solid white;
+    border-radius: 30px;
+    padding:10px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 100px;
+  }
+  .DadosAnteriores h1{
+    border-bottom: 2px solid white;
+  }
+  .DadosAnteriores button{
+    width: 100%;
+    padding: 10px;
+    border: 1px solid white;
+    background-color: transparent;
+    color: white;
+    border-radius: 15px;
+  }
+
+ 
+  

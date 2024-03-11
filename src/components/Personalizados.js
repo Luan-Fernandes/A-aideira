@@ -1,7 +1,7 @@
 import './Personalizados.css';
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
-function Personalizados({envioMsgPers,setEnvioMsgPers,setStepEnvio}) {
+function Personalizados({envioMsgPers,setEnvioMsgPers,setStepEnvio,nome}) {
 
   const [tamanhosAcai, setTamanhosAcai] = useState("")
   const [ValorAcai, setValorAcai] = useState(0)
@@ -703,16 +703,6 @@ function Personalizados({envioMsgPers,setEnvioMsgPers,setStepEnvio}) {
 
   }, [contadorNutella, msgNutella, contadorKitKat, msgKitKat, contadorOreo, msgOreo, contadorChocB, msgChocB, contadorDiamantesN, msgDiamanteN, contadorGotasDC, msgGotasDC])
 
-  const confirmarPedido = () => {
-    if (contadorComplementos === 0 || contadorFrutas === 0 || contadorCaldas === 0) {
-      alert("Complete as Quantidades dos itens!!!")
-    }
-    else {
-      setStepEnvio(2)
-      history("/dadospedido")
-    }
-  }
-
   const pedirOutro = async () => {
     if (numWhats === '' || numWhats.length != 11) {
       alert("Digite Numero do seu WhatsApp!")
@@ -1376,7 +1366,7 @@ function Personalizados({envioMsgPers,setEnvioMsgPers,setStepEnvio}) {
         <div className={tamanhosAcai === "" ? "containervalores" : "containervaloresActivo"}>
           <button onClick={() => setPedirOutroA(true)} className='butContinuar'>Pedir Outro</button>
           <h2>R${valorTotalPerssonalizado},00</h2>
-          <button onClick={confirmarPedido} className='butContinuar'>CONTINUAR</button>
+          <button onClick={() => nome === "defalut" ? history("/dadospedido") : history("/dadossalvos")} className='butContinuar'>CONTINUAR</button>
         </div>
       </section>
 

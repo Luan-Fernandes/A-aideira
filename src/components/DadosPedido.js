@@ -6,12 +6,19 @@ import { FaPix } from "react-icons/fa6";
 import { FaCcMastercard } from "react-icons/fa";
 import { FaMoneyBillWave } from "react-icons/fa";
 
-function DadosPedido({envioPedido,envioMsgPers,stepEnvio}) {
+function DadosPedido({envioPedido,envioMsgPers,stepEnvio,nome,setNome,endereco,setEndereco,celular,setCelular,complemento,setComplemento,setButDados,butDados,celular2,setCelular2}) {
 
   const enviarMsg = () => {
-    if(nome === "" || endereco === "" || celular === "" || complemento === "" || confirmNumero === false){
-      alert("Preencha os campos obrigatorios, ou Confirme o Numero")
-    }else{
+    if(nome === "" || endereco === "" || celular === "" || complemento === ""){
+      alert("Preencha os campos obrigatorios!")
+    }
+    else if(celular != celular2){
+      alert("Números de WhatsApp não coincidem!")
+    }
+    else if(celular.length != 11 || celular2.length != 11){
+      alert("Número de WhatsApp invalido!")
+    }
+    else{
       history("/pedidoconfirmado")
       return PedidoCompleto()
     }
@@ -21,26 +28,6 @@ function DadosPedido({envioPedido,envioMsgPers,stepEnvio}) {
 
   const history = useNavigate();
   const [step,setStep] = useState();
-  const [confirmNumero,setConfirmeNumero] = useState(false)
-
-  const [nome,setNome] = useState(() => {
-    const nomeSalvo = localStorage.getItem('nome');
-    return nomeSalvo ? nomeSalvo : 'defalut'
-  })
-  const [endereco,setEndereco] = useState(() => {
-    const enderecoSalvo = localStorage.getItem('endereco');
-    return enderecoSalvo ? enderecoSalvo : 'defalut'
-  })
-  const [celular,setCelular] = useState(() => {
-    const celularSalvo = localStorage.getItem('celular');
-    return celularSalvo ? celularSalvo : 'defalut'
-  })
-  const [complemento,setComplemento] = useState(() => {
-    const complementoSalvo = localStorage.getItem('complemento');
-    return complementoSalvo ? complementoSalvo : 'defalut'
-  })
-
-  const [butDados, setButDados] = useState(false)
 
   const [observacao,setObservacao] = useState("--")
   const pedidoMsg = ("**Pedidos Açaideira**\n\n"+"Bem vindo(a)" +" "+ "*" + nome + "*"+" "+"!\n\n" +envioPedido+ "\n\n" + "*Endereço:*\n" +endereco+"\n\n"+"*Referência:*\n"+complemento+"\n\n"+ "*Forma de Pagamento:*"+" "+step+"\n\n"+ "*Observação:*\n"+observacao + "\n\n" + "*CASO O PAGAMENTO FOR VIA PIX, POR FAVOR, ENVIE O COMPROVANTE.*" +"\n\n"+ "*OBRIGADO PELA PREFERÊNCIA.*") 
@@ -48,7 +35,6 @@ function DadosPedido({envioPedido,envioMsgPers,stepEnvio}) {
   const pedidoMsgPers = ("**Pedidos Açaideira**\n\n"+"Bem vindo(a)" +" "+ "*" + nome + "*"+" "+"!\n\n" +envioMsgPers+ "\n\n" + "*Endereço:*\n" +endereco+"\n\n"+"*Referência:*\n"+complemento+"\n\n"+ "*Forma de Pagamento:*"+" "+step+"\n\n"+ "*Observação:*\n"+observacao + "\n\n" + "*CASO O PAGAMENTO FOR VIA PIX, POR FAVOR, ENVIE O COMPROVANTE.*" +"\n\n"+ "*OBRIGADO PELA PREFERÊNCIA.*") 
 
   const CelularEdit = "55"+celular;
-  
   
 
   useEffect(() => {
@@ -126,10 +112,17 @@ console.log(data)
             <label> *Endereço:</label>
             <input placeholder='Exp.:Bairro, Rua e Número' value={butDados === true ? endereco : undefined} type="text" onChange={(e) => setEndereco(e.target.value)}/>
 
-            <label> *WhatsApp:</label>
+            
             <div className='ConfirmeNumero'>
+              <div>
+            <label> *WhatsApp:</label>
             <input placeholder='Exp.:81999294899' type="number" value={butDados === true ? celular : undefined} onChange={(e) => setCelular(e.target.value)}/>
-            <input onClick={() => setConfirmeNumero(!confirmNumero)} className={confirmNumero === false ? "butNumero" : "butconfirmado"} type="button" value={confirmNumero === false ? "Confirme Número" : "Número Confirmado"} />
+            </div>
+
+            <div>
+            <label> *Confirme:</label>
+            <input placeholder='Exp.:81999294899' type="number" value={butDados === true ? celular2 : undefined} onChange={(e) => setCelular2(e.target.value)}/>
+            </div>
             </div>
 
             <label> *Referência:</label>
@@ -149,14 +142,6 @@ console.log(data)
             
             <input onClick={enviarMsg} type="button" className='ButtonEnviar' value="Enviar Pedido"/>
         </form>
-        <div className='DadosAnteriores'>
-          <h1>Dados Anteriores!</h1>
-            <p>*Nome: {nome}.</p>
-            <p>*Endereço: {endereco}.</p>
-            <p>*WhatsApp: {celular}.</p>
-            <p>*Referência: {complemento}.</p>
-            <button onClick={() => setButDados(true)}>Usar Dados Anteriores.</button>
-        </div>
       </div>
     );
   }
