@@ -48,7 +48,7 @@ function App() {
           <Routes>
         
           <Route exact path="/" element={<Main nome={nome} envioPedido={envioPedido} setEnvioPedido={setEnvioPedido} setStepEnvio={setStepEnvio} />} />
-          <Route exact path="/personalizados" element={<Personalizados envioMsgPers={envioMsgPers} setStepEnvio={setStepEnvio} setEnvioMsgPers={setEnvioMsgPers}/>} />
+          <Route exact path="/personalizados" element={<Personalizados celular2={celular2} celular={celular} setCelular={setCelular} setCelular2={setCelular2} envioMsgPers={envioMsgPers} setStepEnvio={setStepEnvio} setEnvioMsgPers={setEnvioMsgPers}/>} />
           <Route exact path="/dadospedido" element={<DadosPedido nome={nome} setNome={setNome} setCelular={setCelular} setEndereco={setEndereco} setComplemento={setComplemento} celular2={celular2} setCelular2={setCelular2} endereco={endereco} setButDados={setButDados} butDados={butDados} celular={celular} complemento={complemento} stepEnvio={stepEnvio} envioPedido={envioPedido} envioMsgPers={envioMsgPers} setEnvioPedido={setEnvioPedido}/>} />
           <Route exact path="/pedidoconfirmado" element={<PedidoConfirmado envioPedido={envioPedido}/>} />
           <Route exact path="/dadossalvos" element={<DadosSalvos nome={nome} endereco={endereco} setButDados={setButDados} butDados={butDados} celular={celular} complemento={complemento} />} />

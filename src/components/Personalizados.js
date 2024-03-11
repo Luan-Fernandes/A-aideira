@@ -1,7 +1,7 @@
 import './Personalizados.css';
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
-function Personalizados({envioMsgPers,setEnvioMsgPers,setStepEnvio,nome}) {
+function Personalizados({envioMsgPers,setEnvioMsgPers,setStepEnvio,nome,celular,celular2,setCelular,setCelular2}) {
 
   const [tamanhosAcai, setTamanhosAcai] = useState("")
   const [ValorAcai, setValorAcai] = useState(0)
@@ -704,11 +704,11 @@ function Personalizados({envioMsgPers,setEnvioMsgPers,setStepEnvio,nome}) {
   }, [contadorNutella, msgNutella, contadorKitKat, msgKitKat, contadorOreo, msgOreo, contadorChocB, msgChocB, contadorDiamantesN, msgDiamanteN, contadorGotasDC, msgGotasDC])
 
   const pedirOutro = async () => {
-    if (numWhats === '' || numWhats.length != 11) {
-      alert("Digite Numero do seu WhatsApp!")
+    if (celular === '' || celular.length != 11) {
+      alert("Número de WhatsApp invalido!")
     }
-    else if (contadorComplementos === 0 || contadorFrutas === 0 || contadorCaldas === 0) {
-      alert("Complete as Quantidades dos itens!!!")
+    else if(celular != celular2){
+      alert("Números de WhatsApp não coincidem!")
     }
     else {
       /*Complementos*/
@@ -1372,8 +1372,16 @@ function Personalizados({envioMsgPers,setEnvioMsgPers,setStepEnvio,nome}) {
 
       <section className='valores'>
         <div className={pedirOutroA === true ? "containervaloresActivoPO" : "containervaloresPO"}>
+          <div className='confirmenum'>
+            <div>
           <p>WhatsApp:</p>
-          <input className='numWha' placeholder='Exp.: 81999294899' type="number" onChange={(e) => setNumWhats(e.target.value)} />
+          <input className='numWha' placeholder='Exp.: 81999294899' type="number" value={celular} onChange={(e) => setCelular(e.target.value)} />
+          </div>
+          <div>
+          <p>Confirme:</p>
+          <input className='numWha' placeholder='Exp.: 81999294899' type="number" value={celular2} onChange={(e) => setCelular2(e.target.value)} />
+          </div>
+          </div>
           <button onClick={pedirOutro} className='butContinuar'>ENVIAR</button>
         </div>
       </section>

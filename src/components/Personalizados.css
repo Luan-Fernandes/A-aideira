@@ -214,3 +214,10 @@ width: 70px;
     padding: 0;
     justify-content: flex-start;
   }
+  .confirmenum{
+    display: flex;
+    line-height: 0;
+  }
+  .confirmenum div input{
+    width: 85%;
+}

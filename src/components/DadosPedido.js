@@ -50,6 +50,10 @@ function DadosPedido({envioPedido,envioMsgPers,stepEnvio,nome,setNome,endereco,s
   },[celular])
 
   useEffect(() => {
+    localStorage.setItem('celular2',celular2);
+  },[celular2])
+
+  useEffect(() => {
     localStorage.setItem('complemento',complemento);
   },[complemento])
 
