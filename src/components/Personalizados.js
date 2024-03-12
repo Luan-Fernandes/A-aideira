@@ -8,7 +8,7 @@ function Personalizados({envioMsgPers,setEnvioMsgPers,setStepEnvio,nome,celular,
   const history = useNavigate();
   const msgAcai = '**Açai' + ' ' + tamanhosAcai+'*'
 
-
+  console.log(envioMsgPers)
 
 
   /*Variaveis Complementos*/
@@ -114,7 +114,7 @@ function Personalizados({envioMsgPers,setEnvioMsgPers,setStepEnvio,nome,celular,
 
   const valorAdicionaisTotal = (valorNutella * contadorNutella) + (valorKitKat * contadorKitKat) + (valorOreo * contadorOreo) + (contadorChocB * valorChocB) + (contadorDiamantesN * valorDiamanteN) + (contadorGotasDC * valorGotasDC)
 
-  const msgPedidoPersonalizado = "**Pedido Personalizado*\n\n" + msgAcai + '\n\n' + '---------------------------------------\n'+"*COMPLEMENTOS*\n\n" + msgLeite + msgAmendoim +
+  const msgPedidoPersonalizado = "**Pedido Personalizado*\n\n" + msgAcai + '\n\n' + '---------------------------------------\n'+"**COMPLEMENTOS*\n\n" + msgLeite + msgAmendoim +
     msgPacoca +
     msgGranola +
     msgFarinhaL +
@@ -1366,7 +1366,7 @@ function Personalizados({envioMsgPers,setEnvioMsgPers,setStepEnvio,nome,celular,
         <div className={tamanhosAcai === "" ? "containervalores" : "containervaloresActivo"}>
           <button onClick={() => setPedirOutroA(true)} className='butContinuar'>Pedir Outro</button>
           <h2>R${valorTotalPerssonalizado},00</h2>
-          <button onClick={() => nome === "defalut" ? history("/dadospedido") : history("/dadossalvos")} className='butContinuar'>CONTINUAR</button>
+          <button onClick={() => nome === "defalut" ? [history("/dadospedido"),setStepEnvio(2)] : [history("/dadossalvos"),setStepEnvio(2)]} className='butContinuar'>CONTINUAR</button>
         </div>
       </section>
 

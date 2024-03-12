@@ -102,13 +102,15 @@ function Main({envioPedido,setEnvioPedido,setStepEnvio,nome}) {
 
   const continuarBut = () => {
     if(valor === 0){
-      alert("Adicione pelo menos um Açai!")
+      alert("Adicione ao menos um Açai!")
     }
     else if(valor != 0 && nome === "defalut"){
       history("/dadospedido")
+      setStepEnvio(1)
     }
     else{
       history("/dadossalvos")
+      setStepEnvio(1)
     }
   
   }

@@ -9,12 +9,12 @@ function PedidoConfirmado() {
 
     return (
       <div className="PedidoConfirmado">
-        
+        <div>
         <h1 className='titulo'>Pedido Enviado<TbTruckDelivery /></h1>
         <img className='img' src={imgacai} alt="" />
         <p className='txt'>Acompanhe pedido pelo WhatsApp, Obrigado pela Preferência!!!</p>
         <input onClick={() => history("/")} className='but' type="button" value="Continuar Pedindo" />
-        
+        </div>
       </div>
     );
   }

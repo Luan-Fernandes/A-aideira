@@ -14,6 +14,7 @@ function DadosSalvos({nome,endereco,celular,complemento,setButDados,butDados}) {
                 <p>*Referência: {complemento}.</p>
                 <button onClick={() => [setButDados(true),history("/dadospedido")]}>Usar Dados Anteriores.</button>
             </div>
+            <button className='butContinuarD' onClick={() => history("/dadospedido")}>Não usar Dados.</button>
             </div>
   );
 }

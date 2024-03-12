@@ -12,6 +12,9 @@ function DadosPedido({envioPedido,envioMsgPers,stepEnvio,nome,setNome,endereco,s
     if(nome === "" || endereco === "" || celular === "" || complemento === ""){
       alert("Preencha os campos obrigatorios!")
     }
+    else if(step === undefined){
+      alert("Escolha a Forma de pagamento!")
+    }
     else if(celular != celular2){
       alert("Números de WhatsApp não coincidem!")
     }
@@ -67,11 +70,11 @@ function DadosPedido({envioPedido,envioMsgPers,stepEnvio,nome,setNome,endereco,s
   method: 'POST',
   headers: {
     'Content-Type': 'application/json',
-    'user_token_id': 'd05b1f8a-2ffd-4189-8987-ae80745bfc29'
+    'user_token_id': 'a094b463-1b0d-4b4c-bc56-15c785f7c591'
   },
   body: JSON.stringify({
-    instance_id: 'MR3D1SNFR8KXISR3AUP8FVAK',
-    instance_token: 'b0df3c44-8028-4001-8550-7d14229d56d1',
+    instance_id: '1S3YM80P0S8SXQT3X27E9BYV',
+    instance_token: '75eef91a-a744-4e2d-b7a0-456bfa2e9454',
     message: [pedidoMsg],
     phone: [CelularEdit]
   })
@@ -89,11 +92,11 @@ console.log(data)
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
-      'user_token_id': 'd05b1f8a-2ffd-4189-8987-ae80745bfc29'
+      'user_token_id': 'a094b463-1b0d-4b4c-bc56-15c785f7c591'
     },
     body: JSON.stringify({
-      instance_id: 'MR3D1SNFR8KXISR3AUP8FVAK',
-      instance_token: 'b0df3c44-8028-4001-8550-7d14229d56d1',
+      instance_id: '1S3YM80P0S8SXQT3X27E9BYV',
+      instance_token: '75eef91a-a744-4e2d-b7a0-456bfa2e9454',
       message: [pedidoMsgPers],
       phone: [CelularEdit]
     })
@@ -102,7 +105,6 @@ console.log(data)
   
   console.log(data)
   // { msg: 'Messages sent' }
-  
     }
   }
   
