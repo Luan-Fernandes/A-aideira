@@ -4,7 +4,7 @@ import PromoNutella from "./img/PromoNutella.jpeg";
 
 
 function Promocoes() {
-  const [hoje] = useState(4)
+  const [hoje] = useState(new Date().getDay())
 
   /*Segunda num 1 Creme de Pacoca*/
     /*Quinta num 4 Nutella*/
@@ -28,9 +28,7 @@ function Promocoes() {
   }
   return (
     <div className='ContainerPaiP'>
-      <div className='fotoP'>
       <img className="Promo" src={fotoPromo()} alt="Foto Promocao" />
-      </div>
       <button onClick={promos}>EU QUERO</button>
     </div>
   );

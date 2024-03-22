@@ -41,7 +41,7 @@ function App() {
   const [butDados, setButDados] = useState(false)
 
   const [promoFechar, setPromoFechar] = useState()
-  const [hoje] = useState(4)
+  const [hoje] = useState(new Date().getDay())
 
   const aparecerPromo = () => {
     if(promoFechar === true){
