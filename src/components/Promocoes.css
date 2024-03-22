@@ -1,0 +1,26 @@
+.ContainerPaiP{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+}
+
+.ContainerPaiP button{
+    width: 70%;
+    padding: 7px;
+    border: 1px solid white;
+    border-radius: 30px;
+    background-color: transparent;
+    color: white;
+}
+
+.Promo{
+    margin-top: 50px;
+    width: 340px;
+    height:70vh;
+    border-radius: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

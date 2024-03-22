@@ -7,6 +7,7 @@ import imgLimocity from "./img/image0.jpeg";
 import imgAcaideira from "./img/image2.png";
 import imgBlack from "./img/image3.png";
 import imgKids from "./img/image4.png";
+import Promocoes from './Promocoes';
 function Main({envioPedido,setEnvioPedido,setStepEnvio,nome}) {
   const history = useNavigate();
 
@@ -241,6 +242,7 @@ function Main({envioPedido,setEnvioPedido,setStepEnvio,nome}) {
           <button onClick={continuarBut} className='butContinuar'>CONTINUAR</button>
         </div>
       </section>
+      
     </div>
   );
 }

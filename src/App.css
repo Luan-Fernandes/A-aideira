@@ -28,3 +28,27 @@ header{
 
 /*---------------------------------------*/
 
+.promocao{
+  position: fixed;
+  width: 100%;
+  top: 0;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.616);
+}
+.butt{
+  width: 45px;
+  height: 45px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 25px;
+  margin-top: 15px;
+  position: relative;
+  left: 18rem;
+  border-radius: 30px;
+  background-color: rgb(105, 8, 8);
+}
+.promocaoDesact{
+  display: none;
+}
