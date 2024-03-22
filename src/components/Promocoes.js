@@ -28,7 +28,9 @@ function Promocoes() {
   }
   return (
     <div className='ContainerPaiP'>
+      <div className='fotoP'>
       <img className="Promo" src={fotoPromo()} alt="Foto Promocao" />
+      </div>
       <button onClick={promos}>EU QUERO</button>
     </div>
   );

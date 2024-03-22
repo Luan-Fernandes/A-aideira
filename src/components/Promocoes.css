@@ -4,8 +4,8 @@
     justify-content: center;
     align-items: center;
     gap: 50px;
+    line-height: 0;
 }
-
 .ContainerPaiP button{
     width: 70%;
     padding: 7px;
@@ -16,11 +16,13 @@
 }
 
 .Promo{
-    margin-top: 50px;
-    width: 340px;
-    height:70vh;
+    margin-top: 30px;
+    width: 300px;
+    height:65vh;
     border-radius: 30px;
     display: flex;
     justify-content: center;
     align-items: center;
+    border: 1px solid white;
+    padding: 10px;
 }
